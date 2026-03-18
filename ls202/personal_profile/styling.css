@@ -1,0 +1,13 @@
+body {
+  background-color: #01304b;
+  color: aliceblue;
+  font-family: Arial;
+}
+
+li {
+  padding: 10px;
+}
+
+a {
+  color: #c3b802;
+}
