@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      var article = {
+        toggleColor: function () {
+          document.querySelector('article').classList.toggle('toggled');
+        },
+      };
+    </script>
+    <link rel="stylesheet" href="padding_and_margins.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <section>
+      <article onclick="article.toggleColor()">Click here</article>
+    </section>
+    <p>This is the first sentence</p>
+    <p>This is the second sentence</p>
+    <h1>Using `em` Units</h1>
+    <div class="a-em">
+      1em == 1 * 24px == 24px
+      <div class="b-em">
+        1.5em == 1.5 * 24px == 36px
+        <div class="c-em">
+          2em == 2 * 36px == 72px
+          <div class="a-em">1em == 1 * 72px == 72px</div>
+        </div>
+      </div>
+    </div>
+
+    <hr />
+
+    <h1>Using `rem` Units</h1>
+    <div class="a-rem">
+      1rem == 1 * 24px == 24px
+      <div class="b-rem">
+        1.5rem == 1.5 * 24px == 36px
+        <div class="c-rem">
+          2rem == 2 * 24px == 48px
+          <div class="a-rem">1rem == 1 * 24px == 24px</div>
+        </div>
+      </div>
+    </div>
+
+    <div id="auto-width">
+      <div id="auto-width-auto">width: auto</div>
+      <div id="auto-width-100-border">width: 100%; box-sizing: border-box;</div>
+      <div id="auto-width-100-content">
+        width: 100%; box-sizing: content-box;
+      </div>
+    </div>
+  </body>
+</html>

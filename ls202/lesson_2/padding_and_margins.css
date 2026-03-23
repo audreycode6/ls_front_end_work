@@ -1,0 +1,85 @@
+section {
+  background-color: #ffc0c0;
+  border: 1px solid black;
+  height: 300px;
+  margin: 0;
+  padding: 0;
+  width: 300px;
+}
+
+article {
+  background-color: #c0c0ff;
+  border: 30px solid blue;
+  box-sizing: border-box;
+  cursor: pointer;
+  height: 200px;
+  margin: 40px;
+  padding: 50px;
+  width: 200px;
+}
+
+p {
+  margin-bottom: 15px;
+  margin-top: 32px;
+}
+
+/* The JavaScript code above turns this class on and off in the <article> */
+.toggled {
+  background-color: #c0ffc0;
+  border: 30px solid green;
+}
+
+html,
+body {
+  font-size: 24px;
+}
+
+.a-em {
+  font-size: 1em;
+}
+.b-em {
+  font-size: 1.5em;
+}
+.c-em {
+  font-size: 2em;
+}
+
+.a-rem {
+  font-size: 1rem;
+}
+.b-rem {
+  font-size: 1.5rem;
+}
+.c-rem {
+  font-size: 2rem;
+}
+
+#auto-width {
+  background-color: cyan;
+  border: 1px solid gray;
+  font-family: monospace;
+  text-align: center;
+  width: 730px;
+}
+
+#auto-width div {
+  background-color: #ffe0e0;
+  border: 10px solid red;
+  margin: 10px;
+  padding: 10px;
+  text-align: left;
+}
+
+#auto-width-auto {
+  width: auto;
+}
+
+#auto-width-100-border {
+  box-sizing: border-box;
+  width: 100%;
+}
+
+#auto-width-100-content {
+  box-sizing: content-box;
+  width: 100%;
+}
