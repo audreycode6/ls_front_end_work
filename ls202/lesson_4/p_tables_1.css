@@ -1,0 +1,14 @@
+table {
+    background-color: cyan;
+    border-collapse: collapse;
+}
+
+tbody tr:nth-child(2n+1) {
+    background-color: yellow;
+}
+
+tbody tr:nth-child(2n+2) {
+    background-color: orange;
+}
+
+
