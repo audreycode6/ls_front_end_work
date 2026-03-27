@@ -4,6 +4,7 @@ html, body {
     font-weight: lighter;
 }
 
+/* set size of content */
 article {
     border: 1px solid black;
     width: 400px;
@@ -12,16 +13,19 @@ article {
 
 }
 
+/* line after Calories */
 header {
     border-bottom: .5rem solid black;
 }
 
+/* nutrition facts label */
 h1 {
     padding: 0;
     margin: 0;
     font-size: 2.5rem;
 }
 
+/* amount per serving + top/bottom borders */
 h2 {
     padding: 5px 0;
     margin: 5px 0 0 0;
@@ -30,11 +34,13 @@ h2 {
     border-bottom: 1px solid grey;
 }
 
+/* ensure no spacing between list items */
 dl {
     padding: 0;
     margin: 0;
 }
 
+/* make description be listed inline with the grams: e.g Total Fat 8g */
 dt {
     display: inline;
     font-weight: 600;
@@ -50,16 +56,20 @@ sup {
     vertical-align: 3px;
 }
 
+
+/* The serving size under h1 */
 header p {
     margin: 0;
 }
 
+/* Calories from Fat inline with Calories */
 header dl {
     display: inline-block;
     width: 50%;
     padding: 5px 0;
 }
 
+/* Calories from Fat to right */
 header dl + dl { 
     text-align: right; 
 }
@@ -68,21 +78,20 @@ header dl + dl dt {
     font-weight: lighter;
 }
 
+/* fix table width to fit into article (parent) and clean table border format */
 table {
     width: 100%;
     border-spacing: 0;
     border-collapse: collapse;
 }
 
-
+/* % Daily Value & Calories at bottom */
 thead th { 
     text-align: right;
-}
-
-thead th:first-of-type{
     font-size:small;
 }
 
+/* spacinging for table 1 nutrition facts */
 tbody th {
     padding: 2px 0;
     font-weight: normal;
@@ -90,11 +99,14 @@ tbody th {
     border-top: 1px solid grey;
 }
 
+
+/* lines to seperate the td elements */
 tbody td {
 padding: 2px 0;
 border-top: 1px solid grey;
 }
 
+/* items under % daily Value format bold and to right */
 tr td:last-of-type {
     font-weight: 600;
     text-align: right;
@@ -106,11 +118,15 @@ td.indent {
 
 }
 
+/* line afte Protein */
 tbody + tbody tr:first-of-type td { border-top: 15px solid black; }
+
+/* Vitamins rows percents as lighter */
 tbody + tbody tr td:last-of-type {
     font-weight: lighter;
 }
 
+/* the Percent Daily Values text */
 tfoot td:last-of-type {
     padding: .5rem 0 .5rem .7rem;
     font-size: .9rem;
@@ -121,7 +137,10 @@ tfoot td:last-of-type {
 }
 
 
+/* bottom table font size */
 table + table { font-size: .8rem; }
+
+/* format bottom table heading */
 table + table thead th {
     width: 37%;
     font-weight: lighter;
@@ -129,20 +148,24 @@ table + table thead th {
     border-bottom: 1px solid grey;
 }
 
+/* spacing between columns in bottom table */
 table + table thead th + th {
     width: 21%;
 }
 
+/* no border lines in bottom table  */
 table + table td {
     border: none;
     padding: 0;
 }
 
+/* format text in last column of bottom table  */
 table + table tr td:last-of-type {
     font-weight: lighter;
     text-align: left;
 }
 
+/* add indent for bottom table */
 table + table td.indent {
     width: auto;
     text-indent: 1.2rem;
