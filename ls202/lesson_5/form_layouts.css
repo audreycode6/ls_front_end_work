@@ -5,7 +5,7 @@
 }
 
 /*  Grey box and default font for fieldsets */
-.styles-form fieldset {
+.styled-form fieldset {
     background-color: #ececec;
     border: 2px solid #999;
     box-sizing: border-box;
@@ -42,9 +42,23 @@
     padding-right: 1.5rem;
 }
 
-
 .top-to-bottom label,
 .top-to-bottom input[type="text"] {
     display: block;
     width: 100%;
+}
+
+.side-by-side label,
+.side-by-side input[type="text"] {
+    display: inline-block;
+}
+
+.side-by-side label {
+    margin-right: 1rem;
+    vertical-align: middle;
+}
+
+.side-by-side input[type="text"] {
+    vertical-align: middle;
+    width: 35%;
 }
