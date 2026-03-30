@@ -18,6 +18,7 @@
 .styled-form label {
     font-weight: bold;
     line-height: 1.5rem;
+    padding-top: 0.3333rem;
 }
 
 /* Custom appearance for input and select fields */
@@ -48,38 +49,47 @@
     width: 100%;
 }
 
-.side-by-side label,
-.side-by-side input[type="text"] {
+/* city state and zip inline */
+.top-to-bottom dl.partial {
+    box-sizing: border-box;
     display: inline-block;
+    padding-right: 1rem;
+    vertical-align: top;
 }
 
-.side-by-side label {
-    margin-right: 1rem;
-    vertical-align: middle;
-}
-
-.side-by-side input[type="text"] {
-    vertical-align: middle;
+.top-to-bottom dl.address {
     width: 100%;
 }
 
-.side-by-side dl {
-    font-size: 0;
+.top-to-bottom dl.city {
+    width: 50%;
 }
 
-.side-by-side dt,
-.side-by-side dd {
-    box-sizing: border-box;
-    display: inline-block;
-    font-size: 1rem;
-    vertical-align: middle;
-}
-
-.side-by-side dt {
-    padding-right: 1rem;
+.top-to-bottom dl.state {
     width: 25%;
 }
 
-.side-by-side dd {
-    width: 75%;
+.top-to-bottom dl.zipcode {
+    padding-right: 0;
+    width: 25%;
+}
+
+.top-to-bottom dl dd {
+    width: auto;
+}
+
+.top-to-bottom fieldset,
+.top-to-bottom dl, 
+.top-to-bottom dl dd, 
+.top-to-bottom dl dt {
+    font-size: 0;
+}
+
+.top-to-bottom dl label,
+.top-to-bottom dl input[type="text"] {
+    font-size:  1rem;
+}
+
+.top-to-bottom select {
+    width: 100%;
 }
