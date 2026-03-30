@@ -41,3 +41,10 @@
     background-repeat: no-repeat;
     padding-right: 1.5rem;
 }
+
+
+.top-to-bottom label,
+.top-to-bottom input[type="text"] {
+    display: block;
+    width: 100%;
+}
