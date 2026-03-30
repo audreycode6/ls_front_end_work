@@ -1,0 +1,43 @@
+/* Eliminate margins and padding on everything */
+.styled-form * {
+    margin: 0;
+    padding: 0;
+}
+
+/*  Grey box and default font for fieldsets */
+.styles-form fieldset {
+    background-color: #ececec;
+    border: 2px solid #999;
+    box-sizing: border-box;
+    color: #4d4d4d;
+    font-family: myriad-pro, "Helvetia Neue", Helvetica, Roboto, Arial, sans-serif;
+    padding: 1rem;
+}
+
+/* Custom appearance for labels */
+.styled-form label {
+    font-weight: bold;
+    line-height: 1.5rem;
+}
+
+/* Custom appearance for input and select fields */
+.styled-form input[type="text"],
+.styled-form select {
+    border: 1px solid #06c;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font: normal 1rem Helvetica, Arial, sans-serif;
+    height: 40px;
+    padding: 5px 8px;
+}
+
+/* More customization for select lists */
+.styled-form select {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeD0iMTJweCIgeT0iMHB4IiB3aWR0aD0iMjRweCIgaGVpZ2h0PSIzcHgiIHZpZXdCb3g9IjAgMCA2IDMiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDYgMyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+PHBvbHlnb24gcG9pbnRzPSI1Ljk5MiwwIDIuOTkyLDMgLTAuMDA4LDAgIi8+PC9zdmc+");
+    background-position: 100% center;
+    background-repeat: no-repeat;
+    padding-right: 1.5rem;
+}
