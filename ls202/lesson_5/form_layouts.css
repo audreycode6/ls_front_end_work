@@ -60,5 +60,26 @@
 
 .side-by-side input[type="text"] {
     vertical-align: middle;
-    width: 35%;
+    width: 100%;
+}
+
+.side-by-side dl {
+    font-size: 0;
+}
+
+.side-by-side dt,
+.side-by-side dd {
+    box-sizing: border-box;
+    display: inline-block;
+    font-size: 1rem;
+    vertical-align: middle;
+}
+
+.side-by-side dt {
+    padding-right: 1rem;
+    width: 25%;
+}
+
+.side-by-side dd {
+    width: 75%;
 }
