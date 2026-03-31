@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problem 8</title>
+</head>
+<body>
+    <form method="post" action="#">
+        <fieldset>
+            <dl>
+                <dt><label name="movies">Movie</label></dt>
+                <dd>
+                    <select name="movies" id="movies" size="4">
+                        <option value="Looper">Looper</option>
+                        <option value="Frozen">Frozen</option>
+                        <option value="Tommy Boy">Tommy Boy</option>
+                        <option value="Alien" selected>Alien</option>
+                    </select>
+                </dd>
+       
+                <dt><label name="rating">Rating</label></dt>
+                <dd>
+                    <input type="number" name="rating" id="rating" min="1" max="5" required>
+                </dd>
+
+                <div>
+                    <label>
+                        <input type="checkbox" name="favorite" checked>Add to my favorites
+                    </label>
+                </div>
+               <input type="submit" value="Rate movie">
+            </dl>
+        </fieldset>
+    </form>
+</body>
+</html>

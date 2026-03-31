@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="pp_forms1.css">
+    <title>Problem 1</title>
+</head>
+<body>
+    <form action="#" method="post">
+        <fieldset>
+            <dl>
+                <dt><label for="first-name">First Name</label></dt>
+                <dd>
+                    <input type="text" name="first-name" id="first-name" placeholder="John" required>
+                </dd>
+           
+                <dt><label for="last-name">Last Name</label></dt>
+                <dd>
+                    <input type="text" name="last-name" id="last-name" placeholder="Smith" required>
+                </dd>
+          
+                <dt><label for="email">Email</label></dt>
+                <dd>
+                    <input type="email" name="email" id="email" placeholder="example@address.com"
+                            autocomplete="off" autocorrect="off" autocapitalize="none" required>
+                </dd>
+           
+                <dt><label for="phone-type">Phone Type</label></dt>
+                <dd>
+                    <select name="phone-type" id="phone-type">
+                        <option disabled>Select phone type</option>
+                        <option value="home" selected>home</option>
+                        <option value="business">business</option>
+                        <option value="mobile">mobile</option>
+                    </select>
+                </dd>
+                 
+                <dt><label for="phone-num">Phone Number</label></dt>
+                <dd>
+                    <input type="tel" name="phone-num" id="phone-num" placeholder="### ### ####">
+                </dd>
+
+                <dt><label for="message">Message</label></dt>
+                <dd>
+                    <textarea name="message" id="message" rows="6" cols="80" placeholder="Type your message here."></textarea>
+                </dd>
+            </dl>
+            <input type="submit" value="Send">
+        </fieldset>
+    </form>
+    
+</body>
+</html>
