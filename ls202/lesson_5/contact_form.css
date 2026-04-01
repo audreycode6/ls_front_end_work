@@ -28,9 +28,14 @@ textarea {
     width: 100%;
 }
 
+#state {
+    border: 1px solid #cecece;
+}
+
 [type="text"],
 [type="email"],
-[type="number"] {
+[type="number"],
+#state {
     height: 30px;
 }
 
@@ -54,6 +59,14 @@ ul {
     width: 50%;
 }
 
+.ten-percent {
+    width: 10%;
+}
+
+.forty-percent {
+    width: 40%;
+}
+
 .left {
     padding-right: 5px;
 }
@@ -61,3 +74,19 @@ ul {
 .right {
     padding-left: 5px;
 }
+
+.both {
+    padding: 0 5px;
+}
+
+dl {
+    margin-bottom: 0;
+}
+
+dl + dl {
+    margin-top: 0;
+}
+/* 
+#state {
+    height: 30px;
+} */
