@@ -11,6 +11,7 @@ section {
     width: 750px;
     background-color: beige;
     margin: 0 auto;
+    overflow: hidden;
 }
 
 article, aside {
