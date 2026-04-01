@@ -8,7 +8,7 @@ body {
 }
 
 section {
-    width: 750px;
+    max-width: 1000px;
     background-color: beige;
     margin: 0 auto;
     overflow: hidden;
@@ -27,7 +27,8 @@ article {
 }
 
 aside {
-    width: 250px;
+    float: none;
+    overflow: hidden;
     background-color: palegoldenrod;
 }
 
