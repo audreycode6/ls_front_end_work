@@ -44,3 +44,20 @@ ul {
     list-style: none;
     padding-left: 0;
 }
+
+.partial {
+    box-sizing: border-box;
+    display: inline-block;
+}
+
+.one-half {
+    width: 50%;
+}
+
+.left {
+    padding-right: 5px;
+}
+
+.right {
+    padding-left: 5px;
+}
