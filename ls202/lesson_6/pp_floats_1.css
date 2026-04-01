@@ -1,0 +1,32 @@
+body, section, article, aside {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: aquamarine;
+}
+
+section {
+    width: 750px;
+    background-color: beige;
+    margin: 0 auto;
+}
+
+article, aside {
+    padding: 1rem;
+    float: left;
+    box-sizing: border-box;
+    
+}
+
+article {
+    width: 500px;
+    background-color: palevioletred;
+}
+
+aside {
+    width: 250px;
+    background-color: palegoldenrod;
+}
+
