@@ -11,7 +11,6 @@ section {
     max-width: 1000px;
     background-color: beige;
     margin: 0 auto;
-    overflow: hidden;
 }
 
 article, aside {
@@ -22,7 +21,7 @@ article, aside {
 }
 
 article {
-    width: 500px;
+    width: 70%;
     background-color: palevioletred;
 }
 
@@ -30,5 +29,11 @@ aside {
     float: none;
     overflow: hidden;
     background-color: palegoldenrod;
+}
+
+footer {
+    background-color: paleturquoise;
+    clear: both;
+    padding: 1rem;
 }
 
