@@ -4,13 +4,15 @@
 
 body {
     font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
     color: #545459;
 }
 
 .container {
     margin: 0 auto;
-    padding: 30px 20px;
-    border: 2px solid grey;
+    padding: 20px;
+    border: 2px solid #999;
+    width: 1000px;
 }
 
 h1, h2, h3 {
@@ -18,7 +20,7 @@ h1, h2, h3 {
 }
 
 h1 {
-    font-size: 26px;
+    font-size: 24px;
 }
 
 h2 {
@@ -26,6 +28,60 @@ h2 {
 }
 
 h3 {
-    font-size: 18px;
+    font-size: 16px;
 }
 
+a {
+    text-decoration: none;
+    color: rgb(56, 55, 55);
+}
+
+.border {
+    border: 2px dashed rgb(84, 82, 82);
+    padding: 30px;
+    width: 65%;
+    margin: 40px;
+}
+
+
+.inline-margin a{
+    margin: 0 30px;
+}
+
+.inline-padding a {
+    padding: 30px;
+    background-color: green;
+    color: white;
+}
+
+.inline-float a {
+    background-color: green;
+    border: 3px solid darkgreen;
+    color: white;
+    float: left;
+    text-align: center;
+    padding: 25px;
+    margin: 10px;
+    width: 120px;
+    
+}
+
+.cf::before,
+.cf::after {
+    content: "";
+    display: block;
+}
+
+
+.cf::after {
+    clear: both;
+}
+
+
+p {
+    line-height: 2rem;
+}
+
+code {
+    font-size: 16px;
+}
