@@ -31,7 +31,8 @@ h3 {
 }
 
 p {
-    line-height: 2rem;;
+    line-height: 2rem;
+    z-index: 2;
 }
 
 div {
@@ -241,22 +242,30 @@ li {
     bottom: 0;
     left: 40px;
     background-color: rgba(36, 128, 227, 0.818);
-    color: rgba(253, 252, 252, 0.828);
+    color: rgb(253, 252, 252);
+    z-index: 1;
 }
 
 #relative-box {
     position: relative;
     width: 300px;
-
-
+    right: 90px;
+    bottom: -45px;
+    margin-bottom: 30px;
 }
 
-#absolute-box {
+.pos-absolute {
+    position: relative;
+}
+
+.pos-absolute #absolute-box {
     position: absolute;
-    bottom: 0;
+    margin-bottom: 30px;
+    left: 230px;
+    top: -80px;
 }
 
 #absolute-box, #fixed-box {
     width: 150px;
-    padding: 20px 30px;
+    padding: 25px 35px;
 }
