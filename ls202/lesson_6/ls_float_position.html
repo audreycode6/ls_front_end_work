@@ -181,11 +181,11 @@
             <p>There are other ways to clear floats. One technique is the <strong>clearfix</strong> method:</p>
             <pre>
                 <code>
-                    elementName::after {
-                                        content: " ";
-                                        display:block;
-                                        clear: both;
-                                    }
+            elementName::after {
+                content: " ";
+                display:block;
+                clear: both;
+            }
                 </code>
             </pre>
 
@@ -217,6 +217,7 @@
 
             <section class="pos-fixed">
                 <h2>Fixed Positioning</h2>
+
                 <p>Lets you place an element at a fixed position in the browser window; 
                     it will remain in place even when you scroll the page. You need 
                     the <code>top</code>, <code>bottom</code>, <code>right</code>, and 
@@ -232,6 +233,7 @@
 
             <section class="pos-relative">
                 <h2>Relative Positioning</h2>
+
                 <p>Relative positioning positions an element at a location relative to its 
                     normal position. Unlike fixed positioning, relative positioning does not 
                     remove an element from the page flow; in fact, you can observe a gap in 
@@ -248,7 +250,8 @@
             </section>
 
             <section class="pos-absolute">
-                <h1>Absolute Positioning</h1>
+                <h2>Absolute Positioning</h2>
+
                 <p>Absolute positioning removes an element from the normal page flow 
                     and positions it at an absolute position relative to its parent element. 
                     If the parent element is the <code>&lt;body&gt;</code>, the 
@@ -256,7 +259,7 @@
                 </p>
                 <p>The green box shows absolute positioning.</p>
                 <div class="wrap">
-                    <div>I use absolute positioning.</div>
+                    <div class="abs-box1">I use absolute positioning.</div>
                 </div>
             </section>
         </section>

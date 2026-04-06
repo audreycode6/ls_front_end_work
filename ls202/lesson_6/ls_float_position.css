@@ -31,6 +31,27 @@ h3 {
     font-size: 16px;
 }
 
+.cf::before,
+.cf::after {
+    content: "";
+    display: block;
+}
+
+
+.cf::after {
+    clear: both;
+}
+
+
+p {
+    line-height: 35px;
+    margin-bottom: 25px;
+}
+
+code {
+    font-size: 16px;
+}
+
 a {
     text-decoration: none;
     color: rgb(56, 55, 55);
@@ -64,26 +85,6 @@ a {
     margin: 10px;
     width: 120px;
     
-}
-
-.cf::before,
-.cf::after {
-    content: "";
-    display: block;
-}
-
-
-.cf::after {
-    clear: both;
-}
-
-
-p {
-    line-height: 2rem;
-}
-
-code {
-    font-size: 16px;
 }
 
 /* BLOCK */
@@ -173,4 +174,105 @@ code {
     padding: 20px 30px;
     margin: 20px 8px 25px;
     width: 180px;
+}
+
+/* Floats and Positioning Elements */
+.pos-fl {
+    border-top: 2px dashed #545459;
+}
+
+/* SAME effect .pos-fl ^
+.in-bl::after {
+    border-bottom: 2px dashed #545459;
+    content: "";
+    display: block;
+    padding-top: 30px;
+    width: 100%;
+} */
+
+.pos-fl h1 {
+    text-align: center;
+}
+
+.flbx-1 {
+    background-color: orangered;
+    width: 450px;
+}
+
+.flbx-2 {
+    background-color: dodgerblue;
+    width: 505px;
+}
+
+.flbx-3 {
+    background-color: seagreen;
+    clear:both;
+    height: 50px;
+    line-height: 50px;
+    width: 955px;
+    margin-bottom: 35px;
+}
+
+.flbx-1, .flbx-2 {
+    float: left;
+    height: 100px;
+    line-height: 100px;
+    /* width: 50%; */
+}
+
+.flbx-1, .flbx-2, .flbx-3 {
+    color: white;
+    text-align: center;
+    font-weight: bold;
+}
+
+ul {
+    list-style-type: disc;
+    margin: 0 0 45px 40px;
+}
+
+li {
+    font-style: italic;
+    margin-bottom: 10px;
+}
+.pos-fixed div {
+    background-color: dodgerblue;
+    color: white;
+    border-radius: 10px;
+    text-align: center;
+    padding: 25px 35px;
+    position: fixed;
+    bottom: 50px;
+    left: 35px;
+    width: 225px;
+}
+
+.rel-box {
+    border-radius: 10px;
+    background-color: orangered;
+    text-align: center;
+    color: white;
+    position: relative;
+    padding: 25px 35px;
+    right: 90px;
+    bottom: -45px;
+    width: 325px;
+
+}
+
+.pos-absolute {
+    position: relative;
+}
+
+.pos-absolute .abs-box1 {
+    background-color: green;
+    text-align: center;
+    color: white;
+    padding: 25px 35px;
+    border-radius: 10px;
+    position: absolute;
+    top: -30px;
+    left: 230px;
+    width: 200px;
+    margin-bottom: 30px;
 }
