@@ -14,10 +14,11 @@ h1 {
   color: white;
 }
 
-header {
+header, h1 {
   padding: 1rem;
   text-align: center;
 }
+
 
 nav {
   background-color: cyan;
