@@ -77,7 +77,9 @@ p {
 footer {
   background-color: yellow;
   display: flex;
+  flex-flow: row-reverse;
   justify-content: space-between;
+
 }
 
 #copyright {
