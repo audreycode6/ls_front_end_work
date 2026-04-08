@@ -99,12 +99,25 @@ p {
 footer {
   background-color: yellow;
   grid-area: footer;
+  display: grid;
+  grid-template-areas: 
+    "logo copyright";
+  grid-template-columns: 1fr 3fr;
 }
 
 #copyright {
   margin: 0 1rem;
+  grid-area: copyright;
+  place-self: center end;
 }
 
 #logo {
   background-color: orange;
+  grid-area: logo;
+}
+
+img {
+  display: block;
+  object-fit: cover;
+  width: 100%;
 }
