@@ -9,12 +9,14 @@ html {
   color: black;
 }
 
-h1 {
+header, h1 {
   background-color: blue;
   color: white;
 }
 
-header, h1 {
+header {
+  background-color: blue;
+  color: white;
   padding: 1rem;
   text-align: center;
 }
@@ -25,6 +27,7 @@ nav {
 }
 
 ul {
+  display: flex;
   list-style-type: none;
 }
 
