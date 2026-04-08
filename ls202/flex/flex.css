@@ -79,6 +79,7 @@ footer {
   display: flex;
   flex-flow: row-reverse;
   justify-content: space-between;
+  align-items: center;
 
 }
 
