@@ -1,5 +1,12 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
 html {
   font: normal 24px Helvetica, Arial, sans-serif;
+  color: black;
+  background-color: white;
 }
 
 header, h1 {
