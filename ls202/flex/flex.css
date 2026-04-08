@@ -76,6 +76,8 @@ p {
 
 footer {
   background-color: yellow;
+  display: flex;
+  justify-content: space-between;
 }
 
 #copyright {
@@ -84,4 +86,9 @@ footer {
 
 #logo {
   background-color: orange;
+}
+
+img {
+  display: block;
+  height: 200px;
 }
