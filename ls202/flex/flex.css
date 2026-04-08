@@ -51,13 +51,23 @@ a:hover {
   color: yellow;
 }
 
+main {
+  display: flex;
+}
+
 article,
 aside {
   padding: 0 1rem;
 }
 
 aside {
+  flex: 1;
   background-color: lightgreen;
+}
+
+
+article {
+  flex: 2;
 }
 
 p {
