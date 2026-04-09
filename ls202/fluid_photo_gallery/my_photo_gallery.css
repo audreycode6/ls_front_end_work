@@ -1,10 +1,50 @@
 body {
-    margin:0;
-    padding: 0;
+    margin: 0 auto;
+    padding: 0 20px 20px 20px;
+    box-sizing: border-box;
 }
 
 html {
     font-family: Arial, Helvetica, sans-serif;
     color: white;
     background-color: black;
+}
+
+.container {
+    background-color: rgb(58, 56, 56);
+    padding: 20px;
+    margin: 0 auto;
+    min-width: 500px;
+    max-width: 1000px;
+}
+
+header {
+    padding-top: 10px;
+    text-align: center;
+}
+
+main.main-photo img{
+    width: 100%;
+    box-sizing: border-box;
+    border: white 10px solid;
+}
+
+figure {
+    margin: 0;
+    padding: 0;
+}
+
+figcaption {
+    padding: 10px 0 30px 0;
+}
+
+main.small-photos {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.small-photos img {
+    width: 21%;
+    border: white 5px solid;
 }
