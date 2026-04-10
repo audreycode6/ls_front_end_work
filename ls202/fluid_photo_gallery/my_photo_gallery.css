@@ -48,4 +48,5 @@ figcaption {
     flex: 1;
     width: 20%;
     border: white 5px solid;
+    margin-bottom: 15px;
 }
