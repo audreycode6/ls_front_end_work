@@ -44,7 +44,7 @@ figcaption {
     --cols: 4; /* how many img's to display per row */
     display: flex;
     flex-wrap: wrap;
-    gap: 15px;
+    gap: var(--gap);
 }
 
 .small-photos img {
