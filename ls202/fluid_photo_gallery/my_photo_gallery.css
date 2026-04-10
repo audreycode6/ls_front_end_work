@@ -23,29 +23,29 @@ header {
     text-align: center;
 }
 
+
 figure, img {
     width: 100%;
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
 figure img {
     border: white 10px solid;
-
+    box-sizing: border-box;
 }
 
 figcaption {
     padding: 10px 0 30px 0;
 }
 
-div.small-photos {
+.small-photos {
     display: flex;
-    align-items: center;
     justify-content: space-between;
 }
 
 .small-photos img {
-    width: 21%;
+    flex: 1;
+    width: 20%;
     border: white 5px solid;
 }
