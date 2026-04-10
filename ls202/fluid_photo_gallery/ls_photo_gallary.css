@@ -3,6 +3,7 @@
     margin: 0;
     padding: 0;
 }
+
 html {
     background-color: black;
     color: white;
@@ -11,8 +12,7 @@ html {
 main {
     background-color: rgb(99, 96, 96);
     margin: 0 auto;
-    padding: 15px;
-    min-width: 500px;
+    padding: 25px 20px 20px;
     max-width: 1000px;
     display: block;
 }
@@ -36,6 +36,10 @@ figure img {
     border: 15px solid white;
 }
 
+figcaption {
+    padding-top: 10px;
+}
+
 ul {
     font-size: 0; /* remove extra padding from html space between elements */
     margin: 0 -15px; /* negative to adjust due to main padding of 15px */
@@ -51,6 +55,46 @@ li {
 
 li img {
     border: 3px solid white;
+}
+
+@media screen and (min-width: 1280px) {
+    main {
+        max-width: 100%;
+    }
+
+    figure {
+        float: left;
+        margin-right: 50px;
+        vertical-align: top;
+        width: 950px;
+    }
+
+    ul {
+        overflow: hidden;
+    }
+
+    li {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 999px) {
+    li {
+        width: 25%;
+    }
+    
+}
+
+@media screen and (max-width: 899px) {
+    li {
+        width: 33.3333%;
+    }
+}
+
+@media screen and (max-width: 599px) {
+    li {
+        width: 50%;
+    }
 }
 
 
