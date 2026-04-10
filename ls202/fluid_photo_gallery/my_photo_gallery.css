@@ -23,15 +23,16 @@ header {
     text-align: center;
 }
 
-main.main-photo img{
+figure, img {
     width: 100%;
     box-sizing: border-box;
-    border: white 10px solid;
-}
-
-figure {
     margin: 0;
     padding: 0;
+}
+
+figure img {
+    border: white 10px solid;
+
 }
 
 figcaption {
