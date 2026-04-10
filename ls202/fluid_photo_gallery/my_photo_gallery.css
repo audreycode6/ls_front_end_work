@@ -26,12 +26,12 @@ header {
 }
 
 figure, img {
-    width: 100%;
     margin: 0;
     padding: 0;
 }
 
 figure img {
+    width: 100%;
     border: white 10px solid;
 }
 
@@ -43,13 +43,12 @@ figcaption {
     display: flex;
     flex-wrap: wrap;
     gap: 15px;
-    justify-content: space-between;
 }
 
 .small-photos img {
-    /* default: 4 in a row */
-    flex: 1;
-    width: 20%;
+    /* default: 4 per row */
+    flex: 0 0 calc((100% - 3 * 15px) / 4);
+    width: calc((100% - 3 * 15px) / 4); 
     border: white 5px solid;
     margin-bottom: 15px;
 }
@@ -57,7 +56,8 @@ figcaption {
 @media screen and (max-width: 899px) {
     /* 3 in a row */
     .small-photos img {
-        flex-basis: 33.333%
+        flex: 0 0 calc((100% - 2 * 15px) / 3);
+        width: calc((100% - 2 * 15px) / 3); 
     }
 }
 
@@ -65,7 +65,9 @@ figcaption {
 @media screen and (max-width: 599px) {
     /* 2 in a row */
     .small-photos img {
-        flex-basis: 50%;
+        flex: 0 0 calc((100% - 1 * 15px) / 2);
+        width: calc((100% - 1 * 15px) / 2);
     }
 }
+
 
