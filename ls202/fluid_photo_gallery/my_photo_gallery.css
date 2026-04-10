@@ -64,4 +64,26 @@ figcaption {
     .small-photos { --cols: 2;}
 }
 
+@media screen and (min-width: 1280px) {
+    .container {
+        max-width: 100%; /* lift the 1000px cap */
+    }
 
+    main {
+        display: flex;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    figure {
+        flex: 0 0 950px; /* figure is rigidly locked at 950px 
+                            regardless of window size */
+        margin-right: 50px;
+    }
+
+    .small-photos {
+        --cols: 1;
+        flex: 1 1 auto; /*  grow to fill all remaining space after figure
+                            takes its 950px, and shrink if needed. */
+    }
+}
