@@ -12,8 +12,7 @@ html {
 body {
     background-color: rgb(204 215 184);
     width: 1099px;
-    /* margin: 0 auto; */
-    padding: 10px 70px 30px 70px;
+    padding: 0 70px 30px 70px;
 }
 
 main {
@@ -21,7 +20,7 @@ main {
     width: 960px;
     color: rgb(60 92 105);
     padding: 30px;
-    box-shadow: 2px 8px 5px 2px rgba(162, 172, 144, .75);
+    box-shadow: 1px 5px 3px 1px rgba(162, 172, 144, .75);
 }
 
 .flex-container {
@@ -44,15 +43,14 @@ main {
 nav {
     width: 580px;
     margin-top: 105px;
-    margin-left: 40px;
+    margin-left: 50px;
 }
 
-
 li {
-display: inline;
-background-color: rgb(255 254 252);
-border-radius: 10px 10px 0 0;
-padding: 15px 40px;
+    display: inline;
+    background-color: rgb(255 254 252);
+    border-radius: 10px 10px 0 0;
+    padding: 15px 40px;
 }
 
 a {
@@ -62,7 +60,7 @@ a {
 }
 
 a:hover, li:hover {
-    color: white;
+    color: rgb(255 254 252);
     background-color: rgb(133 160 147);
 }
 
@@ -98,6 +96,7 @@ p {
 
 footer {
     margin-top: 10px;
+    font-size: .8rem;
 }
 
 header {
