@@ -1,0 +1,45 @@
+body {
+   font: normal 18px "Roboto Condensed", sans-serif;
+   background-image: linear-gradient(to bottom, #d2dbbe, #fafef3);
+   background-repeat: no-repeat;
+   color: #3e606f;
+
+}
+header {
+    width: 940px;
+    margin: 0 auto;
+    padding: 20px 20px 0 20px;
+}
+
+
+h1 {
+    float: left;
+    padding: 45px 0 15px 115px;
+    font-size: 36px;
+    font-weight: normal;
+    background: transparent url("/ls202/photoshop_design_file/images/logo.png") 0 0 no-repeat;
+}
+
+nav {
+    float: right;
+    padding: 75px 0 0 0;
+}
+
+nav li {
+    display: inline-block;
+}
+
+nav a {
+    display: block; /* make anchor block so the whole li element will be clickable */
+    padding: 10px 40px 14px 40px;
+    color: #91aa9d;
+    text-decoration: none;
+    background-color: #fcfff5;
+    border-radius: 10px 10px 0 0;
+}
+
+
+nav a:active {
+    color: #fcfff5;
+    background-color: #91aa9d;
+}
