@@ -1,0 +1,30 @@
+body {
+    background: url(../company_splash_page/c_s_p_design_files/bg_body.gif) repeat;
+    color: white;
+    padding: 100px
+}
+
+main {
+    background-color: white;
+    color: #45494d;
+    margin: 0 auto;
+    text-align: center;
+    font-family: "Nunito", sans-serif;
+
+}
+
+header {
+    text-align: center;
+}
+
+h2 {
+    color: #3e98e2;
+}
+
+footer {
+    background-color: #e7e7e7 ;
+}
+
+li {
+    display: inline;
+}
