@@ -1,0 +1,34 @@
+
+
+header, main, footer {
+    margin: 0 auto;
+    font-family: "Nunito", sans-serif;
+}
+
+header {
+    background: url(../company_site/spacedesign/images/bg_body.gif) repeat;
+    height: 560px;
+    text-align: center;
+    font-size: 26px;
+}
+
+h1 {
+    padding: 115px 0;
+}
+
+li {
+    display: inline;
+    padding: 0 40px;
+}
+
+a {
+    text-decoration: none;
+    color: #cacaca;
+}
+
+a:active {
+    color: #6db9ff;
+    font-weight: bold;
+}
+
+
