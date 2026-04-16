@@ -2,13 +2,16 @@
 
 header, main, footer {
     margin: 0 auto;
+    text-align: center;
+}
+
+header, main, footer, pre {
     font-family: "Nunito", sans-serif;
 }
 
 header {
     background: url(../company_site/spacedesign/images/bg_body.gif) repeat;
     height: 560px;
-    text-align: center;
     font-size: 26px;
 }
 
@@ -18,6 +21,9 @@ h1 {
 
 li {
     display: inline;
+}
+
+body > header li {
     padding: 0 40px;
 }
 
@@ -31,4 +37,26 @@ a:active {
     font-weight: bold;
 }
 
+main {
+    background-color: white;
+    min-height: 800px;
+}
 
+footer {
+    height: 300px;
+    background-color: #e7e7e7;
+    font-size: 20px;
+    color: #b2b2b2;
+}
+
+body > footer pre {
+    text-align: center;
+    padding-top: 85px;
+}
+
+
+
+
+/* body > footer img {
+    
+} */
