@@ -1,16 +1,17 @@
+body {
+    background: url(../company_site/spacedesign/images/bg_body.gif) repeat;
+}
 
-
-header, main, footer {
+header, main, footer, article, h2, h3, p{
     margin: 0 auto;
     text-align: center;
 }
 
-header, main, footer, pre {
+header, main, footer, p {
     font-family: "Nunito", sans-serif;
 }
 
 header {
-    background: url(../company_site/spacedesign/images/bg_body.gif) repeat;
     height: 560px;
     font-size: 26px;
 }
@@ -39,7 +40,34 @@ a:active {
 
 main {
     background-color: white;
-    min-height: 800px;
+    padding-top: 120px;
+}
+
+article, h2, h3, p {
+    width: 800px;
+    padding: 0 50px;
+}
+
+body > main article {
+    height: 50%;
+    color: black;
+}
+body > main p {
+    font-size: 20px;
+    padding-bottom: 80px;
+    width: 800px;
+    font-weight: 600;
+}
+h2 {
+    font-size: 36px;
+    padding-bottom: 50px;
+}
+
+h3 {
+    font-size: 24px;
+    font-weight: 900;
+    color: #3e59b2;
+    padding-bottom: 10px;
 }
 
 footer {
@@ -49,9 +77,10 @@ footer {
     color: #b2b2b2;
 }
 
-body > footer pre {
+body > footer p {
     text-align: center;
-    padding-top: 85px;
+    padding: 85px 3px 0 3px;
+    max-width: 580px;
 }
 
 
