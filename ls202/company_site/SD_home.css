@@ -1,14 +1,20 @@
 body {
     background: url(../company_site/spacedesign/images/bg_body.gif) repeat;
+    max-width: 1,681px; /* total(header + main + footer height's)*/
 }
 
-header, main, footer, article, h2, h3, p{
+header, main, footer, article{
     margin: 0 auto;
     text-align: center;
+    width: 100% auto;
 }
 
 header, main, footer, p {
     font-family: "Nunito", sans-serif;
+}
+
+nav {
+    overflow: hidden;
 }
 
 header {
@@ -56,11 +62,16 @@ body > main p {
     font-size: 20px;
     padding-bottom: 80px;
     width: 800px;
-    font-weight: 600;
 }
+
+p {
+    font-weight: 600;
+    font-size: 20px;
+}
+
 h2 {
     font-size: 36px;
-    padding-bottom: 50px;
+    padding-bottom: 38px;
 }
 
 h3 {
@@ -73,7 +84,6 @@ h3 {
 footer {
     height: 300px;
     background-color: #e7e7e7;
-    font-size: 20px;
     color: #b2b2b2;
 }
 
@@ -83,9 +93,34 @@ body > footer p {
     max-width: 580px;
 }
 
+footer li {
+    display: inline-block;
+    padding: 60px;
+}
+
+footer li a {
+    background: transparent url("spacedesign/images/icons_social-media.png") 0 0 no-repeat;
+    display: block;
+    height: 46px;
+    overflow: hidden;
+    text-indent: -8685px;
+    width: 46px;
+}
 
 
+.twitter_logo {
+    background-position: 0 0;
+}
 
-/* body > footer img {
-    
-} */
+
+.facebook_logo {
+    background-position: 0 -46px;
+}
+
+.email_logo {
+    background-position: 0 -92px;
+}
+
+.insta_logo {
+    background-position: 0 -138px;
+}
