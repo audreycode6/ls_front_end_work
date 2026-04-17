@@ -5,15 +5,6 @@ body {
     padding: 135px 0 115px 0;
 }
 
-nav {
-    font-size: 26px;
-    padding-bottom: 38px;
-}
-
-h1 {
-    margin: 0 0 115px 0;
-}
-
 li {
     display: inline-block;
 }
@@ -21,6 +12,20 @@ li {
 p {
     font-weight: 600;
     font-size: 20px;
+}
+
+/* 
+-------
+HEADER
+-------
+ */
+nav {
+    font-size: 26px;
+    padding-bottom: 38px;
+}
+
+h1 {
+    margin: 0 0 115px 0;
 }
 
 nav li {
@@ -36,6 +41,12 @@ nav a:active {
     color: #6db9ff;
     font-weight: bold;
 }
+
+/* 
+-------
+MAIN 
+------
+ */
 
 main {
     background-color: white;
@@ -76,6 +87,11 @@ body > main p {
     padding-bottom: 80px;
 }
 
+/* 
+--------
+FOOTER 
+-------
+*/
 footer {
     padding: 80px 0;
     background-color: #e7e7e7;
