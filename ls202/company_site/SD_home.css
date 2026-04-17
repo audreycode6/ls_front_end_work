@@ -1,38 +1,34 @@
 body {
-    background: url(../company_site/spacedesign/images/bg_body.gif) repeat;
-    max-width: 1,681px; /* total(header + main + footer height's)*/
-}
-
-header, main, footer, article{
-    margin: 0 auto;
-    text-align: center;
-    width: 100% auto;
-}
-
-header, main, footer, p {
+    background: #2f2840 url(../company_site/spacedesign/images/bg_body.gif) 0 repeat;
     font-family: "Nunito", sans-serif;
+    text-align: center;
+    padding: 135px 0 115px 0;
 }
 
+header, main, footer {
+    margin: 0 auto;
+}
 nav {
-    overflow: hidden;
-}
-
-header {
-    height: 560px;
     font-size: 26px;
+    padding-bottom: 38px;
 }
 
 h1 {
-    padding: 115px 0;
+    margin: 0 0 115px 0;
 }
 
 li {
     display: inline;
 }
 
+nav li {
+    padding: 0 42px;
+}
+
 body > header li {
     padding: 0 40px;
 }
+
 
 a {
     text-decoration: none;
@@ -47,21 +43,22 @@ a:active {
 main {
     background-color: white;
     padding-top: 120px;
+    width: 100% auto;
+    /* min-width: 800px; */
 }
 
 article, h2, h3, p {
-    width: 800px;
     padding: 0 50px;
 }
 
 body > main article {
     height: 50%;
     color: black;
+    min-width: 800px;
 }
 body > main p {
     font-size: 20px;
     padding-bottom: 80px;
-    width: 800px;
 }
 
 p {
@@ -83,6 +80,7 @@ h3 {
 
 footer {
     height: 300px;
+    width: 100%;
     background-color: #e7e7e7;
     color: #b2b2b2;
 }
@@ -91,6 +89,7 @@ body > footer p {
     text-align: center;
     padding: 85px 3px 0 3px;
     max-width: 580px;
+    margin: 0 auto;
 }
 
 footer li {
