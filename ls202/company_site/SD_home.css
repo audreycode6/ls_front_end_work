@@ -5,9 +5,6 @@ body {
     padding: 135px 0 115px 0;
 }
 
-header, main, footer {
-    margin: 0 auto;
-}
 nav {
     font-size: 26px;
     padding-bottom: 38px;
@@ -18,47 +15,7 @@ h1 {
 }
 
 li {
-    display: inline;
-}
-
-nav li {
-    padding: 0 42px;
-}
-
-body > header li {
-    padding: 0 40px;
-}
-
-
-a {
-    text-decoration: none;
-    color: #cacaca;
-}
-
-a:active {
-    color: #6db9ff;
-    font-weight: bold;
-}
-
-main {
-    background-color: white;
-    padding-top: 120px;
-    width: 100% auto;
-    /* min-width: 800px; */
-}
-
-article, h2, h3, p {
-    padding: 0 50px;
-}
-
-body > main article {
-    height: 50%;
-    color: black;
-    min-width: 800px;
-}
-body > main p {
-    font-size: 20px;
-    padding-bottom: 80px;
+    display: inline-block;
 }
 
 p {
@@ -66,51 +23,88 @@ p {
     font-size: 20px;
 }
 
+nav li {
+    padding: 0 42px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #cacaca;
+}
+
+nav a:active {
+    color: #6db9ff;
+    font-weight: bold;
+}
+
+main {
+    background-color: white;
+    padding-top: 100px;
+}
+
 h2 {
     font-size: 36px;
     padding-bottom: 38px;
+}
+
+h2:before,
+h2:after {
+    display: inline-block;
+    padding: 0 24px;
+    font-size: 22px;
+    content: "\2022"; /* bull symbol wrapping heading */
+    vertical-align: 5px;
 }
 
 h3 {
     font-size: 24px;
     font-weight: 900;
     color: #3e59b2;
-    padding-bottom: 10px;
+    padding-bottom: 15px;
+}
+
+article {
+    color: black;
+}
+
+.column {
+    width: 800px;
+    margin: 0 auto;
+}
+
+body > main p {
+    padding-bottom: 80px;
 }
 
 footer {
-    height: 300px;
-    width: 100%;
+    padding: 80px 0;
     background-color: #e7e7e7;
     color: #b2b2b2;
 }
 
-body > footer p {
-    text-align: center;
-    padding: 85px 3px 0 3px;
-    max-width: 580px;
-    margin: 0 auto;
+footer p {
+    padding: 0 0 35px 0;
 }
 
 footer li {
-    display: inline-block;
-    padding: 60px;
+    padding: 0 62px;
 }
 
 footer li a {
     background: transparent url("spacedesign/images/icons_social-media.png") 0 0 no-repeat;
     display: block;
-    height: 46px;
-    overflow: hidden;
-    text-indent: -8685px;
     width: 46px;
+    height: 46px;
+    overflow: hidden; /* text beyond width and height no longer available */
+    text-indent: -8685px; /* push text off screen */
 }
 
-
+/* height of each contact logo is 46px so we just need to 
+push positioning by increments of 46 V
+*/
 .twitter_logo {
     background-position: 0 0;
 }
-
 
 .facebook_logo {
     background-position: 0 -46px;
