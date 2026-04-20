@@ -1,0 +1,12 @@
+.column {
+    width: 1000px;
+}
+
+body > main p {
+    padding: 0 100px 30px 100px;
+}
+
+figure img {
+    padding-bottom: 50px;
+
+}
