@@ -111,7 +111,8 @@ footer li a {
     display: block;
     width: 46px;
     height: 46px;
-    overflow: hidden; /* text beyond width and height no longer available */
+    overflow: hidden; 
+    /* text beyond width and height no longer available */
     text-indent: -8685px; /* push text off screen */
 }
 
