@@ -1,31 +1,36 @@
 /* Inheriting from SD_home.css */
 
 .team-intros {
-    padding-top: 120px;
+    padding-top: 110px;
 }
 
-body > header {
-    height: 470px;
-}
-
-ul {
+.team-intros ul {
     padding-bottom: 200px;
 }
 
-li {
+.team-intros li  {
+    display: inline-block;
     padding: 0 30px;
 }
 
-figcaption {
-    padding-top: 35px;
+.team-intros a {
+    text-decoration: none;
+}
+    
+.team-intros a:active {
+    color: red;
 }
 
-a {
-    text-decoration: none;
-    color: rgb(72 26 124);
-    font-size: 24px;
-    
+.team-intros a img {
+    margin: 0 auto;
 }
-a:active {
-    color: red;
+.team-intros a span {
+    display: block;
+    /* 
+    make block-level elements to
+    stack the name directly under the image, 
+    */
+    font-size: 24px;
+    color: rgb(72 26 124);
+    margin-top: 24px;
 }
