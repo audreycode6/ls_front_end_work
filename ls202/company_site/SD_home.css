@@ -83,7 +83,7 @@ article {
     margin: 0 auto;
 }
 
-body > main p {
+article p {
     padding-bottom: 80px;
 }
 
