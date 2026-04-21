@@ -1,11 +1,14 @@
-.column {
-    width: 1000px;
-}
+/* Inheriting from SD_home.css */
 
 article p {
-    padding: 0 110px 30px 110px;
+    padding: 0 100px 30px 100px;
 }
 
 #projects figure {
     padding-bottom: 50px;
+    margin: 0 auto;
+}
+
+#projects figure img {
+    width: 100%;
 }
