@@ -2,16 +2,6 @@ body {
     background: #2f2840 url(../company_site/spacedesign/images/bg_body.gif) 0 repeat;
     font-family: "Nunito", sans-serif;
     text-align: center;
-    padding: 135px 0 115px 0;
-}
-
-li {
-    display: inline-block;
-}
-
-p {
-    font-weight: 600;
-    font-size: 20px;
 }
 
 /* 
@@ -19,6 +9,15 @@ p {
 HEADER
 -------
  */
+
+header {
+    padding-top: 135px;
+ }
+
+header nav li {
+    display: inline-block;
+}
+
 nav {
     font-size: 26px;
     padding-bottom: 38px;
@@ -54,6 +53,17 @@ main {
     padding-top: 100px;
 }
 
+.column {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+main p {
+    font-weight: 600;
+    font-size: 20px;
+}
+
 h2 {
     font-size: 36px;
     padding-bottom: 20px;
@@ -79,12 +89,6 @@ article {
     color: black;
 }
 
-.column {
-    padding: 20px;
-    max-width: 800px;
-    margin: 0 auto;
-}
-
 article p {
     padding-bottom: 80px;
 }
@@ -102,10 +106,13 @@ footer {
 
 footer p {
     padding: 0 0 35px 0;
+    font-weight: 600;
+    font-size: 20px;
 }
 
 footer li {
     padding: 0 62px;
+    display: inline-block;
 }
 
 footer li a {
@@ -118,7 +125,8 @@ footer li a {
     text-indent: -8685px; /* push text off screen */
 }
 
-/* height of each contact logo is 46px so we just need to 
+/* 
+height of each contact logo is 46px so we just need to 
 push positioning by increments of 46 V
 */
 .twitter_logo {
