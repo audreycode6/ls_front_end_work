@@ -1,0 +1,37 @@
+/* Inheriting from SD_home.css */
+
+main {
+    background-color: white;
+    padding-top: 100px;
+}
+
+
+.team-intros {
+    padding-top: 120px;
+}
+
+body > header {
+    height: 450px;
+}
+
+ul {
+    padding-bottom: 200px;
+}
+
+li {
+    padding: 0 30px;
+}
+figcaption {
+    padding-top: 35px;
+}
+
+a {
+    text-decoration: none;
+    color: rgb(72 26 124);
+    font-size: 24px;
+    
+}
+
+a:active {
+    color: red;
+}
