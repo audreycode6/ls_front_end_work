@@ -2,11 +2,10 @@
     width: 1000px;
 }
 
-body > main p {
-    padding: 0 100px 30px 100px;
+article p {
+    padding: 0 110px 30px 110px;
 }
 
-figure img {
+#projects figure {
     padding-bottom: 50px;
-
 }
