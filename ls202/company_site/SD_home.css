@@ -55,14 +55,14 @@ main {
 
 h2 {
     font-size: 36px;
-    padding-bottom: 38px;
+    padding-bottom: 20px;
 }
 
 h2:before,
 h2:after {
     display: inline-block;
     padding: 0 24px;
-    font-size: 22px;
+    font-size: 30px;
     content: "\2022"; /* bull symbol wrapping heading */
     vertical-align: 5px;
 }
@@ -79,7 +79,8 @@ article {
 }
 
 .column {
-    width: 800px;
+    padding: 20px;
+    max-width: 800px;
     margin: 0 auto;
 }
 
