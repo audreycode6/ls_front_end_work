@@ -1,17 +1,11 @@
 /* Inheriting from SD_home.css */
 
-main {
-    background-color: white;
-    padding-top: 100px;
-}
-
-
 .team-intros {
     padding-top: 120px;
 }
 
 body > header {
-    height: 450px;
+    height: 470px;
 }
 
 ul {
@@ -21,6 +15,7 @@ ul {
 li {
     padding: 0 30px;
 }
+
 figcaption {
     padding-top: 35px;
 }
@@ -31,7 +26,6 @@ a {
     font-size: 24px;
     
 }
-
 a:active {
     color: red;
 }
