@@ -36,7 +36,7 @@ MAIN
 
 h2 {
     font-size: 32px;
-    padding: 25px 0 15px;
+    padding: 25px 0 5px;
 }
 
 main {
@@ -51,7 +51,9 @@ main {
 }
 
 .four-in-a-row {
-    margin: 8px 0;
+    width: 900px;
+    /* background-color: rgba(0, 255, 255, 0.29); */
+    margin: 15px 0 10px;
 }
 
 .product {
@@ -60,6 +62,7 @@ main {
     height: 225px;
     width: 200px;
     background-color: white;
+    padding-top: 10px;
     margin: 8px;
 }
 
@@ -75,7 +78,6 @@ img {
     width: fit-content;
     margin: 0 auto;
     padding-top: 10px;
-    justify-content: space-between;
 }
 
 span {
@@ -86,7 +88,7 @@ span {
 
 span.title {
     font-weight: 900;
-    font-size: 20px;
+    font-size: 19px;
     padding: 20px 15px 5px;
 }
 
