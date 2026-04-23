@@ -52,31 +52,33 @@ main {
 
 .four-in-a-row {
     width: 900px;
-    /* background-color: rgba(0, 255, 255, 0.29); */
     margin: 15px 0 10px;
 }
 
 .product {
-    box-sizing: border-box;
-    display: inline-block;
+    float: left;
     height: 225px;
     width: 200px;
     background-color: white;
-    padding-top: 10px;
+    padding-top: 15px;
     margin: 8px;
 }
 
 .product:nth-child(1) {
-    margin: 0 8px 0 0;
+    margin: 8px 8px 8px 0;
      
 }
 
 .product img {
     display: block;
-    box-sizing: border-box;
     height: 150px;
     width: auto;
     margin: 0 auto;
+}
+
+label.product {
+    background-color: white;
+    padding-bottom: 10px;
 }
 
 span {
@@ -88,13 +90,18 @@ span {
 span.title {
     font-weight: 900;
     font-size: 19px;
-    padding: 20px 15px 5px;
+    margin: 20px 15px 5px;
 }
 
 span.price {
-    padding: 0 15px 15px;
+    margin: 0 15px 15px;
 }
 
+/* 
+----------------------
+enlarged img on click
+----------------------
+*/
 input {
     display: none;
 }
@@ -109,6 +116,5 @@ input {
     transform: translateX(-50%);
     margin: 0;
     z-index: 2;
-
-
 }
+
