@@ -71,13 +71,12 @@ main {
      
 }
 
-img {
+.product img {
     display: block;
     box-sizing: border-box;
     height: 150px;
-    width: fit-content;
+    width: auto;
     margin: 0 auto;
-    padding-top: 10px;
 }
 
 span {
@@ -94,4 +93,22 @@ span.title {
 
 span.price {
     padding: 0 15px 15px;
+}
+
+input {
+    display: none;
+}
+
+.product input:checked + figure img {
+    /* outline: 3px solid plum; */
+    width: 400px;
+    height: auto;
+    position: fixed;
+    top: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0;
+    z-index: 2;
+
+
 }
