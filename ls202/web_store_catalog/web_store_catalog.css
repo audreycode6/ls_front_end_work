@@ -37,16 +37,16 @@ MAIN
 ------------
 */
 
-h2 {
-    font-size: 32px;
-    padding: 25px 0 15px;
-}
-
 main {
     box-sizing: border-box;
     background-color: #ececec;
     height: 620px;
     padding-left: 25px; 
+}
+
+h2 {
+    font-size: 32px;
+    padding: 25px 0 15px;
 }
 
 .product {
@@ -59,8 +59,8 @@ main {
     margin: var(--first-product-in-row-margin);
 }
 
-/* make 1st product elements in a 
-row (1/4) be inline with column/h2 */
+/* make 1st product elements in a row (1/4) 
+be inline with column/h2 */
 label.product:nth-child(2), label.product:nth-child(6) {
     margin: var(--first-product-in-row-margin) var(--first-product-in-row-margin) var(--first-product-in-row-margin) 0;
 }
@@ -104,7 +104,7 @@ enlarged img on click
     height: 190px;
 }
 
-input {
+input[type="checkbox"] {
     display: none;
 }
 
