@@ -3,15 +3,10 @@ body {
 }
 
 .container {
-    outline: 3px solid rgb(37, 121, 90);
-    /* display: inline-flex; */
+    /* outline: 3px solid rgb(37, 121, 90); */
+    display: inline-flex;
+    width: 100%;
 }
-
-nav, main {
-    display: inline-block;
-}
-
-
 
 /* 
 ----------
@@ -20,10 +15,12 @@ NAV
 */
 
 nav {
+    /* outline: 3px solid tan; */
     background-color: #464f77;
     color: #a7aaba;
-    width: 350px;
-    flex: 1;
+    order: 1;
+    flex-basis: 350px;
+    flex-shrink: 0;
 }
 
 /*
@@ -137,14 +134,12 @@ MAIN
 --------
  */
 main {
-    flex: 2;
+    order: 1;
+    flex-grow: 1;
     background-color: rgb(255, 255, 255);
     /* outline: 3px solid rgb(230, 158, 220); */
-    position: absolute;
-    /* width: 100%; */
     padding-left: 30px;
     padding-top: 65px;
-    padding-right: 100px;
 }
 
 main header {
@@ -164,7 +159,6 @@ main h1 {
 
 main h2 {
     border-radius: 10px;
-    font-size: 13px;
     /* outline: 3px solid pink; */
     padding: 1px 5px;
     background-color: #148fd5;
@@ -180,8 +174,8 @@ main a {
 
 main ul {
     margin-top: 20px;
-    /* width: 750px; */
-    width: 100%;
+    min-width: 215px;
+    padding-right: 100px; 
     /* outline: 3px solid rgb(172, 49, 70); */
 
 }
