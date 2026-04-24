@@ -3,9 +3,11 @@ body {
 }
 
 .container {
-    /* outline: 3px solid rgb(37, 121, 90); */
+    outline: 3px solid rgb(37, 121, 90);
     display: inline-flex;
     width: 100%;
+    /* height: 815px; */
+    
 }
 
 /* 
@@ -140,6 +142,7 @@ main {
     /* outline: 3px solid rgb(230, 158, 220); */
     padding-left: 30px;
     padding-top: 65px;
+    padding-bottom: 200px;
 }
 
 main header {
