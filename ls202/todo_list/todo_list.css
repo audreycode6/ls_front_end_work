@@ -1,0 +1,126 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+/* 
+----------
+NAV
+----------
+*/
+
+nav {
+    background-color: #464f77;
+    color: #a7aaba;
+    width: 350px;
+}
+
+/*
+------------ 
+list heading 
+------------
+*/
+.list-logo-and-title {
+    padding-top: 65px;
+    padding-left: 100px;
+    padding-bottom: 5px;
+}
+
+.list-logo-and-title img, .list-logo-and-title h1 {
+    float: left;
+}
+
+.list-logo-and-title h2{
+    float: right;
+    margin-right: 30px;
+    border-radius: 10px;
+    background-color: #6b7292;
+    margin-top: 2px; /* positions center of img */
+    padding: 1px 5px;
+    /* outline: 3px solid rgb(37, 121, 90); */
+}
+
+nav img {
+    padding-right: 8px;
+    padding-bottom: 10px;
+}
+
+nav h1 {
+    /* outline: 3px solid rgb(37, 121, 90); */
+    color: rgb(230, 230, 230);
+    font-weight: 400;
+    font-size: 18px;
+    margin-top: 2px; /* positions center of img */
+}
+
+
+/*
+------------ 
+nav list items 
+------------
+*/
+nav ul::before {
+    display: block;
+    clear: both;
+    content: "";
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+nav ul {
+    /* outline: 3px solid rgb(158, 207, 230); */
+    padding-bottom: 40px; 
+}
+
+nav li {
+    padding: 10px;
+    cursor: pointer;
+    /* outline: 2px solid rgb(106, 102, 211); */
+}
+
+nav li.active  {
+    color: rgb(230, 230, 230);
+    background-color: #383f5f;
+}
+
+nav .active dd{
+    background-color: #148fd5;
+    color: rgb(230, 230, 230);
+}
+
+.completed {
+    text-decoration: line-through;
+}
+
+.completed li, nav dt {
+    margin-left: 125px;
+}
+
+nav dt, nav dd {
+    display: inline;
+    /* outline: 3px solid peachpuff; */
+}
+
+
+nav dd {
+    border-radius: 10px;
+    background-color: #6b7292;
+    padding: 1px 5px;
+    float: right;
+    margin-right: 20px;
+}
+
+/* 
+---------
+MAIN
+--------
+ */
+main {
+    background-color: white;
+    outline: 3px solid rgb(230, 158, 220);
+}
+
+/* nav h1, nav img {
+    float: left;
+} */
