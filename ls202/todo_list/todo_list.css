@@ -201,3 +201,39 @@ main li:hover {
 .tickbox {
     margin-right: 10px;
 }
+
+
+/* 
+---------------
+NAV BAR TOGGLE
+--------------
+*/
+
+/* Hide the checkbox itself */
+.container input[type="checkbox"] {
+    display: none;
+}
+/* Hide navbar toggle by default */
+.navbar-toggle {
+        margin-bottom: 60px;
+        display: none;
+    }
+
+@media (max-width: 786px ) {
+    /*  Hide nav by default */
+    nav.expandable {
+        display: none;
+    }
+
+    /* Show hamburger button  */
+    .navbar-toggle {
+        display: block;
+        cursor: pointer;
+    }
+    
+    /* When checked, use ~ to reach the subsequent sibling nav */
+    #navbar-hamburger:checked ~ nav.expandable{
+        display: block;
+        }
+    
+}
