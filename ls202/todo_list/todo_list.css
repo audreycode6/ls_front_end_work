@@ -1,5 +1,6 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
+    letter-spacing: .5px;
 }
 
 .container {
@@ -61,7 +62,6 @@ nav h2 {
     color: rgb(230, 230, 230);
     font-weight: 400;
     font-size: 18px;
-    letter-spacing: .5px;
     margin-top: 2px; /* positions center of img */
 }
 
@@ -237,3 +237,92 @@ NAV BAR TOGGLE
         }
     
 }
+
+
+/* 
+---------
+modal
+--------- 
+*/
+
+.item-modal {
+    outline: 3px solid purple;
+    /* margin: 30px; */
+    padding: 30px;
+    box-sizing: border-box;
+    overflow: hidden;
+    width: 570px;
+    height: 400px;
+
+    /* font-family: Arial, Helvetica, sans-serif; */
+}
+
+#edit-item:checked {
+    outline: 3px solid green;
+}
+
+/* .date-selection {
+    outline: 3px solid pink;
+} */
+
+
+.item-modal label {
+    /* outline: 3px solid hotpink; */
+    display: inline-block;
+    margin-bottom: 50px;
+}
+
+.item-modal input[type="text"], 
+.date-selection,
+.form-2-btns,
+.item-modal textarea{
+    /* outline: 4px dashed green; */
+    float: right;
+    width: 75%;
+    font-size: inherit;
+    padding: 5px 3px;
+}
+
+
+
+.date-selection select {
+    width: 30%;
+    font-size: inherit;
+    padding: 7px;
+    /* outline: 2px solid pink; */
+    color: grey;
+
+}
+
+/* .date-selection {
+    outline: 4px solid palegreen;
+} */
+
+textarea {
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    letter-spacing: .5px;
+    height: 130px;
+    resize: none;
+}
+
+.button {
+    background-color: #148fd5;
+    color: white;
+    border: none;
+    padding: 5px;
+    font-size: 18px;
+    border-radius: 5px;
+}
+
+.form-2-btns .button {
+    box-sizing: border-box;
+    display: inline;
+    width: 45%;
+    margin-right: 15px;
+}
+
+.form-2-btns {
+    margin-top: 30px;
+}
+

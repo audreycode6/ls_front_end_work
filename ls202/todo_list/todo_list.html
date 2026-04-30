@@ -10,7 +10,7 @@
 <body>
     <div class="container">
         <input type="checkbox" id="navbar-hamburger">
-        
+
         <nav class="expandable">
             <div class="list-logo-and-title">
                 <img alt="All Todos symbol" src="assessment_209/all-todos.png">
@@ -86,9 +86,43 @@
                 <img src="assessment_209/plus.png" alt="Add new to do">
                 <a href="#">Add new to do</a>
                 <ul>
+                    <!-- todo maybe they get in box rather than nesting in ul -->
+                    <input type="checkbox" id="edit-item">
+                    <div class="item-modal">
+                        <form action="" method="get">
+                            <div>
+                                <label for="title">Title</label>
+                                <input type="text" name="title" id="title" required>
+                            </div>
+                            <div>
+                                <label for="due-date">Due Date</label>
+                                <div class="date-selection">
+                                    <select name="due-date" id="day">
+                                        <option disable>Day</option>
+                                        <option>16</option>
+                                    </select> /
+                                    <select name="due-date" id="month">
+                                        <option disable>Month</option>
+                                    </select> /
+                                    <select name="due-date" id="year">
+                                        <option disable>Year</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div>
+                                <label for="description">Description</label>
+                                <textarea name="description" placeholder="Description"></textarea>
+                            </div>
+                            <div class="form-2-btns"><!--
+                                --><input type="submit" class="button" value="Save"><!--
+                                --><input type="submit" class="button" value="Mark as Complete">
+                            </div>
+                        </form>
+                    </div>
+
                     <li>
                         <img class="tickbox" src="assessment_209/unticked-box.png" alt="Unticked todo item">
-                        Item 1
+                        <label for="edit-item">Item 1</label>
                         <img src="assessment_209/trash.png" alt="Delete todo item" class="float-right">
                     </li>
                     <li>
