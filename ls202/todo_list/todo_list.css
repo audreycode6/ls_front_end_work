@@ -293,6 +293,7 @@ Modal Content Styling
     font-size: inherit;
     padding: 7px;
     color: grey;
+    border-radius: 0;
 
      /* Hide the default arrow */
     -webkit-appearance: none;
