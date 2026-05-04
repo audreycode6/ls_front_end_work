@@ -247,24 +247,16 @@ modal
 
 .item-modal {
     outline: 3px solid purple;
-    /* margin: 30px; */
     padding: 30px;
     box-sizing: border-box;
     overflow: hidden;
     width: 570px;
     height: 400px;
-
-    /* font-family: Arial, Helvetica, sans-serif; */
 }
 
 #edit-item:checked {
     outline: 3px solid green;
 }
-
-/* .date-selection {
-    outline: 3px solid pink;
-} */
-
 
 .item-modal label {
     /* outline: 3px solid hotpink; */
@@ -276,6 +268,7 @@ modal
 .date-selection,
 .form-2-btns,
 .item-modal textarea{
+    box-sizing: border-box; /* adjust sizing to include padding */
     /* outline: 4px dashed green; */
     float: right;
     width: 75%;
@@ -283,7 +276,10 @@ modal
     padding: 5px 3px;
 }
 
-
+/* some spacing to left of text input */
+.item-modal input[type="text"], .item-modal textarea {
+    padding-left: 5px;
+}
 
 .date-selection select {
     width: 30%;
