@@ -4,7 +4,6 @@ body {
 }
 
 .container {
-    /* outline: 3px solid rgb(37, 121, 90); */
     display: inline-flex;
     width: 100%;
 }
@@ -14,7 +13,6 @@ body {
 NAV
 ----------
 */
-
 nav {
     background-color: #464f77;
     color: #a7aaba;
@@ -229,7 +227,6 @@ MODAL
 Modal Toggle Styling 
 */
 .item-modal {
-    /* outline: 3px solid purple; */
     background-color: white;
     padding: 30px;
     box-sizing: border-box;
@@ -241,6 +238,7 @@ Modal Toggle Styling
     display: none;
     z-index: 1;
 }
+
 /* 
 Make img and div for input inline 
 */
