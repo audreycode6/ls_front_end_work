@@ -25,7 +25,7 @@ nav {
 
 /*
 ------------ 
-list heading 
+Nav List Heading
 ------------
 */
 .list-logo-and-title {
@@ -43,7 +43,7 @@ list heading
     margin-right: 30px;
     border-radius: 10px;
     background-color: #6b7292;
-    margin-top: 2px; /* positions center of img */
+    margin-top: 2px; /* Positions center of img */
     padding: 1px 5px;
 }
 
@@ -56,13 +56,13 @@ nav h2 {
     color: rgb(230, 230, 230);
     font-weight: 400;
     font-size: 18px;
-    margin-top: 2px; /* positions center of img */
+    margin-top: 2px; /* Positions center of img */
 }
 
 
 /*
 ------------ 
-nav list items 
+Nav List Items 
 ------------
 */
 nav ul::before {
@@ -118,10 +118,45 @@ nav dd {
 }
 
 /* 
+---------------
+NAV BAR TOGGLE
+--------------
+*/
+
+/* Hide the checkbox itself */
+.container input[type="checkbox"] {
+    display: none;
+}
+/* Hide navbar toggle by default */
+.navbar-toggle {
+        margin-bottom: 60px;
+        display: none;
+    }
+
+@media (max-width: 786px ) {
+    /*  Hide nav by default */
+    nav.expandable {
+        display: none;
+    }
+
+    /* Show hamburger button  */
+    .navbar-toggle {
+        display: block;
+        cursor: pointer;
+    }
+    
+    /* When checked, use ~ to reach the subsequent sibling nav */
+    #navbar-hamburger:checked ~ nav.expandable{
+        display: block;
+        }
+    
+}
+
+/* 
 ---------
 MAIN
---------
- */
+---------
+*/
 main {
     order: 1;
     flex-grow: 1;
@@ -185,60 +220,54 @@ main li:hover {
 
 
 /* 
----------------
-NAV BAR TOGGLE
---------------
-*/
-
-/* Hide the checkbox itself */
-.container input[type="checkbox"] {
-    display: none;
-}
-/* Hide navbar toggle by default */
-.navbar-toggle {
-        margin-bottom: 60px;
-        display: none;
-    }
-
-@media (max-width: 786px ) {
-    /*  Hide nav by default */
-    nav.expandable {
-        display: none;
-    }
-
-    /* Show hamburger button  */
-    .navbar-toggle {
-        display: block;
-        cursor: pointer;
-    }
-    
-    /* When checked, use ~ to reach the subsequent sibling nav */
-    #navbar-hamburger:checked ~ nav.expandable{
-        display: block;
-        }
-    
-}
-
-
-/* 
 ---------
 MODAL
 --------- 
 */
 
+/* 
+Modal Toggle Styling 
+*/
 .item-modal {
-    outline: 3px solid purple;
+    /* outline: 3px solid purple; */
+    background-color: white;
     padding: 30px;
     box-sizing: border-box;
+    position: fixed;
+    top: 110px;
     overflow: hidden;
     width: 570px;
     height: 400px;
+    display: none;
+    z-index: 1;
+}
+/* 
+Make img and div for input inline 
+*/
+.list-items img,
+#edit-item-toggle {
+    display: inline;
 }
 
-#edit-item:checked {
-    outline: 3px solid green;
+#edit-item-toggle {
+    cursor: pointer;
 }
 
+#edit-item:checked ~ .item-modal {
+    display: block;
+}
+
+#edit-item:checked ~ .list-items::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+}
+
+/* 
+Modal Content Styling 
+*/
 .item-modal label {
     display: inline-block;
     margin-bottom: 50px;
@@ -248,14 +277,14 @@ MODAL
 .date-selection,
 .form-2-btns,
 .item-modal textarea{
-    box-sizing: border-box; /* adjust sizing to include padding */
+    box-sizing: border-box; /* Adjust sizing to include padding */
     float: right;
     width: 75%;
     font-size: inherit;
     padding: 5px 3px;
 }
 
-/* some spacing to left of text input */
+/* Some spacing to left of text input */
 .item-modal input[type="text"], .item-modal textarea {
     padding-left: 5px;
 }
@@ -282,7 +311,7 @@ MODAL
     padding-right: 30px;
 }
 
-textarea {
+.item-modal textarea {
     box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
     letter-spacing: .5px;
@@ -290,6 +319,10 @@ textarea {
     resize: none;
 }
 
+
+/* 
+Modal Buttons
+ */
 .button {
     background-color: #148fd5;
     color: white;
@@ -309,4 +342,5 @@ textarea {
 .form-2-btns {
     margin-top: 30px;
 }
+
 
