@@ -289,14 +289,24 @@ modal
     width: 30%;
     font-size: inherit;
     padding: 7px;
-    /* outline: 2px solid pink; */
+    /* outline: 2px solid hotpink; */
     color: grey;
 
-}
+     /* Hide the default arrow */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
 
-/* .date-selection {
-    outline: 4px solid palegreen;
-} */
+    /* Add custom icon */
+    background-image: url(/ls202/todo_list/assessment_209/select.png);
+    background-repeat: no-repeat;
+    background-position: right 10px center; 
+    /* Positions icon on the right */
+    background-size: 10px;
+    
+    /* Add padding so text doesn't overlap the icon */
+    padding-right: 30px;
+}
 
 textarea {
     box-sizing: border-box;
