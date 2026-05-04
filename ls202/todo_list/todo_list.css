@@ -268,9 +268,10 @@ Make img and div for input inline
 /* 
 Modal Content Styling 
 */
-.item-modal label {
+.item-modal label, .item-modal span {
     display: inline-block;
     margin-bottom: 50px;
+    padding-top: 5px;
 }
 
 .item-modal input[type="text"], 
