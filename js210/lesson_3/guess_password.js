@@ -11,15 +11,16 @@ let rlSync = require('readline-sync');
 function secure_login_message() {
     let validPw = 'password';
     let pwAttemptCount = 0;
-    let pwInput = '';
 
-    while (pwAttemptCount < 3) {
+    do {
         let pwInput = rlSync.question('What is the password: ');
-        
+
         if (pwInput === validPw) {
             return 'You have successfully logged in.'; 
-        } else pwAttemptCount++;
-    }
+        }
+        pwAttemptCount++;
+    } while (pwAttemptCount < 3);
+
     return 'You have been denied access.'; 
 }
 
