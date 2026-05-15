@@ -6,18 +6,20 @@ three and five, log "FizzBuzz". For all other numbers,
 log the number. */
 
 function fizzBuzz() {
+    let message = '';
     for (let num = 1; num <= 100; num++) {
         if (num % 3 === 0 && num % 5 === 0) {
-            console.log('FizzBuzz');
+            message = 'FizzBuzz';
         }
         else if (num % 3 === 0) {
-            console.log('Fizz');
+            message = 'Fizz';
         }
         else if (num % 5 === 0) {
-            console.log('Buzz');
+            message = 'Buzz';
         } else {
-            console.log(num);
+            message = num;
         }
+        console.log(message)
     }
 }
 
