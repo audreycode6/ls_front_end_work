@@ -14,7 +14,6 @@ function secure_login_message() {
 
     do {
         let pwInput = rlSync.question('What is the password: ');
-
         if (pwInput === validPw) {
             return 'You have successfully logged in.'; 
         }
