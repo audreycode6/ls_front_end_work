@@ -5,22 +5,27 @@ log "Buzz". For numbers which are multiples of both
 three and five, log "FizzBuzz". For all other numbers, 
 log the number. */
 
-function fizzBuzz() {
+function fizzBuzz(max=100) {
     let message = '';
-    for (let num = 1; num <= 100; num++) {
-        if (num % 3 === 0 && num % 5 === 0) {
+
+    for (let num = 1; num <= max; num++) {
+        let multipleOf3 = num % 3 === 0;
+        let multipleOf5 = num % 5 === 0;
+
+        if (multipleOf3 && multipleOf5) {
             message = 'FizzBuzz';
         }
-        else if (num % 3 === 0) {
-            message = 'Fizz';
-        }
-        else if (num % 5 === 0) {
-            message = 'Buzz';
-        } else {
+        else if (multipleOf3) {
+                message = 'Fizz';
+            } 
+        else if (multipleOf5) {
+                message = 'Buzz';
+            } else {
             message = num;
         }
+
         console.log(message)
     }
 }
 
-fizzBuzz();
+fizzBuzz(20);
