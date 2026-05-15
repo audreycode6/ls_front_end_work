@@ -2,8 +2,8 @@
 that are multiples of either 3 or 5. If the number is divisible 
 by both 3 and 5, append an "!" to the number. */
 
-function multiplesOfThreeAndFive() {
-    for (let currentNum = 1; currentNum < 101; currentNum++) {
+function multiplesOfThreeAndFive(min, max) {
+    for (let currentNum = min; currentNum <= max; currentNum++) {
         if (
             (currentNum % 3 === 0) && (currentNum % 5 === 0)
         ) {
@@ -18,4 +18,4 @@ function multiplesOfThreeAndFive() {
 }
 
 
-multiplesOfThreeAndFive();
+multiplesOfThreeAndFive(1, 100);
