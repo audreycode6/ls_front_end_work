@@ -3,8 +3,10 @@ Write a function that takes a number argument, and
 returns true if the number is prime, or false if it is not.
 You may assume that the input is always a non-negative integer. 
 
-To determine if a number \(n\) is prime, check if it is 
-divisible by any integer between 2 and its square root 
+A prime number is a number that has no positive divisors 
+other than 1 and itself. By definition, neither 0 nor 1 is 
+prime. The easiest way to make this determination is to 
+loop from 2 up to but not including the number you are testing
 */
 
 let isPrime = (num) => {
