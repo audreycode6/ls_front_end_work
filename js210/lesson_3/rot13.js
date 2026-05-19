@@ -28,45 +28,37 @@ function rot13(string) {
     const CIPHER_OFFSET = 13;
 
     let rot13String = '';
-    // loop through the string
     for (let i = 0; i < string.length; i++) {
-        // convert char to #
         let currentChar = string[i]
         let asciiNumeric = currentChar.charCodeAt();
-        console.log(`current char: ${currentChar} -> ${asciiNumeric}`)
+        let isLower = asciiNumeric >= LOWERCASE_START && asciiNumeric <= LOWERCASE_END;
+        let isUpper = asciiNumeric >= UPPERCASE_START && asciiNumeric <= UPPERCASE_END;
         
-        if (asciiNumeric >= LOWERCASE_START && asciiNumeric <= LOWERCASE_END) { // if lowercasechar
-            console.log(`   is lower ${currentChar}`)
-            let asciiNumericAdd13 = asciiNumer += CIPHER_OFFSET;
-            // TODO finish lowercase converions --> maybe store lower and upper condition in variable ..?
-
-            // add 13 to it
-            // if it surpasses 122 need to restart at rangestart
-                // e.g 124 -> 2 over so should be 98 (rangeStart + (excess - rangeEnd)
+        if (isLower) { // if lowercasechar
+            let asciiNumericAdd13 = asciiNumeric += CIPHER_OFFSET;
+            if (asciiNumericAdd13 > LOWERCASE_END) { // reassign to valid upper num
+                asciiNumericAdd13 = (LOWERCASE_START - 1) + (asciiNumericAdd13 - LOWERCASE_END);
+            }
+            let newChar = String.fromCharCode(asciiNumericAdd13);
+            rot13String += newChar;
         }
-        else if (asciiNumeric >= UPPERCASE_START && asciiNumeric <= UPPERCASE_END) {// if uppercase
-            console.log(`   is upper ${currentChar}`)
-  
-                // add 13 to it
-                // if it surpased 90 need to restart at rangestart
-        } else {
-            // non alpha char no need to change just add to string
+            
+        else if (isUpper) {// if uppercase
+            let asciiNumericAdd13 = asciiNumeric += CIPHER_OFFSET;
+            if (asciiNumericAdd13 > UPPERCASE_END) { // reassign to proper upper num
+                asciiNumericAdd13 = (UPPERCASE_START - 1) + (asciiNumericAdd13 - UPPERCASE_END);
+            }
+            let newChar = String.fromCharCode(asciiNumericAdd13);
+            rot13String += newChar;
+        } else {// non alpha char no need to change just add to string
             rot13String += currentChar;
         }
-        console.log(`test final: ${rot13String}`)
-    
-        //
     }
-
-        
-
-
-        // convert newasciivalue to char
-        // else just add char
-
+    return rot13String;
 }
-
+console.log(rot13('Ter')); //Gre
+console.log(rot13('Teachers ')); //Grnpuref 
 console.log(rot13('Teachers open the door, but you must enter by yourself.'));
 // logs: Grnpuref bcra gur qbbe, ohg lbh zhfg ragre ol lbhefrys.
-// console.log(rot13(rot13('Teachers open the door, but you must enter by yourself.')));
+console.log(rot13(rot13('Teachers open the door, but you must enter by yourself.')));
 // logs:Teachers open the door, but you must enter by yourself.
