@@ -9,14 +9,14 @@ You may assume that the number passed in is an integer greater than 1.
 */
 
 function multisum(num) {
-    let validMultiples = [];
-    for (let currentNum = 3; currentNum <= num; currentNum++) {
-        if ((currentNum % 3 === 0) || (currentNum % 5 === 0)) {
-            validMultiples.push(currentNum);
+    const MIN_MULTIPLE = 3;
+    let sum = 0;
+    for (let currentNum = MIN_MULTIPLE; currentNum <= num; currentNum++) {
+        if ((currentNum % MIN_MULTIPLE === 0) || (currentNum % 5 === 0)) {
+            sum += currentNum;
         }
     }
-    let sum = validMultiples.reduce((acc, cur) => acc + cur, 0)
-    console.log(sum);
+    console.log(sum)
     return sum;
 }
 
