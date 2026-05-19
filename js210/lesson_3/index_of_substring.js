@@ -44,9 +44,9 @@ function indexOf(firstString, secondString) {
             } 
         }
     }
+    console.log(`   =>returns: -1 `)
     return -1;
 }
-
 
 indexOf('Some strings', 's');                      // 5
 indexOf('Blue Whale', 'Whale');                    // 5
@@ -55,9 +55,10 @@ indexOf('Blue Whale', 'leB');                      // -1
 
 
 function lastIndexOf(firstString, secondString) {
-    // statements
+    return firstString.lastIndexOf(secondString)
+
 }
 
-// lastIndexOf('Some strings', 's');                  // 11
-// lastIndexOf('Blue Whale, Killer Whale', 'Whale');  // 19
-// lastIndexOf('Blue Whale, Killer Whale', 'all');    // -1
+console.log(lastIndexOf('Some strings', 's'));                  // 11
+console.log(lastIndexOf('Blue Whale, Killer Whale', 'Whale'));  // 19
+console.log(lastIndexOf('Blue Whale, Killer Whale', 'all'));    // -1
