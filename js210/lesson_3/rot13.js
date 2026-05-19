@@ -19,40 +19,32 @@ It's worth noting that rot13 applied twice results in the original string
 */
 
 function rot13(string) {
-    // uppercase ascii range: 65-90
-    const UPPERCASE_START = 65;
-    const UPPERCASE_END = 90;
-    //lowercase ascii range 97-122
-    const LOWERCASE_START = 97;
-    const LOWERCASE_END = 122;
+    const UPPERCASE_ASCII_START = 65;
+    const UPPERCASE_ASCII_END = 90;
+    const LOWERCASE_ASCII_START = 97;
+    const LOWERCASE_ASCII_END = 122;
     const CIPHER_OFFSET = 13;
+    const ALPHABET_LEN = 26;
 
     let rot13String = '';
     for (let i = 0; i < string.length; i++) {
-        let currentChar = string[i]
+        let currentChar = string[i];
         let asciiNumeric = currentChar.charCodeAt();
-        let isLower = asciiNumeric >= LOWERCASE_START && asciiNumeric <= LOWERCASE_END;
-        let isUpper = asciiNumeric >= UPPERCASE_START && asciiNumeric <= UPPERCASE_END;
+        let isLower = asciiNumeric >= LOWERCASE_ASCII_START && asciiNumeric <= LOWERCASE_ASCII_END;
+        let isUpper = asciiNumeric >= UPPERCASE_ASCII_START && asciiNumeric <= UPPERCASE_ASCII_END;
         
-        if (isLower) { // if lowercasechar
-            let asciiNumericAdd13 = asciiNumeric += CIPHER_OFFSET;
-            if (asciiNumericAdd13 > LOWERCASE_END) { // reassign to valid upper num
-                asciiNumericAdd13 = (LOWERCASE_START - 1) + (asciiNumericAdd13 - LOWERCASE_END);
+        if (isUpper || isLower) {
+            asciiNumeric += CIPHER_OFFSET;
+            if ( // If you reach the end of the alphabet, return to the beginning.
+                (isLower && (asciiNumeric > LOWERCASE_ASCII_END)) || 
+                (isUpper && (asciiNumeric > UPPERCASE_ASCII_END))
+            ) {
+                // you can “wrap around” by going back 26 positions
+                asciiNumeric -= ALPHABET_LEN; 
             }
-            let newChar = String.fromCharCode(asciiNumericAdd13);
-            rot13String += newChar;
+            currentChar = String.fromCharCode(asciiNumeric); // Convert asciinumeric to equivalent ascii char 
         }
-            
-        else if (isUpper) {// if uppercase
-            let asciiNumericAdd13 = asciiNumeric += CIPHER_OFFSET;
-            if (asciiNumericAdd13 > UPPERCASE_END) { // reassign to proper upper num
-                asciiNumericAdd13 = (UPPERCASE_START - 1) + (asciiNumericAdd13 - UPPERCASE_END);
-            }
-            let newChar = String.fromCharCode(asciiNumericAdd13);
-            rot13String += newChar;
-        } else {// non alpha char no need to change just add to string
-            rot13String += currentChar;
-        }
+        rot13String += currentChar;
     }
     return rot13String;
 }
