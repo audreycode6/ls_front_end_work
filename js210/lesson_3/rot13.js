@@ -17,12 +17,11 @@ It's worth noting that rot13 applied twice results in the original string
     This happens since there are 26 characters in the modern English 
     alphabet: 2 sets of 13.
 */
-
 function rot13(string) {
-    const UPPERCASE_ASCII_START = 65;
-    const UPPERCASE_ASCII_END = 90;
-    const LOWERCASE_ASCII_START = 97;
-    const LOWERCASE_ASCII_END = 122;
+    const UPPERCASE_ASCII_START = "A".charCodeAt();
+    const UPPERCASE_ASCII_END = "Z".charCodeAt();
+    const LOWERCASE_ASCII_START = "a".charCodeAt();
+    const LOWERCASE_ASCII_END = "z".charCodeAt();
     const CIPHER_OFFSET = 13;
     const ALPHABET_LEN = 26;
 
