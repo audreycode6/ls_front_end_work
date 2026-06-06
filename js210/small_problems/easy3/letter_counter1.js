@@ -7,6 +7,7 @@ Words consist of any sequence of non-space characters. */
 
 function wordSizes(string) {
     let wordCountObject = {};
+
     if (string) {
         const stringsArray = string.split(" ");
     
@@ -18,6 +19,7 @@ function wordSizes(string) {
             wordCountObject[wordLength] += 1;
         }) 
     }
+    
     return wordCountObject;
 }
 
