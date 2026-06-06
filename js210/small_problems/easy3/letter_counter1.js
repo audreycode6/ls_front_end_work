@@ -6,21 +6,18 @@ number of words of different sizes.
 Words consist of any sequence of non-space characters. */
 
 function wordSizes(string) {
-    if (string.length === 0) {
-        return {}
-    }
-
-    const stringsArray = string.split(" ");
     let wordCountObject = {};
-
-    stringsArray.forEach((word) => {
+    if (string) {
+        const stringsArray = string.split(" ");
+    
+        stringsArray.forEach((word) => {
             let wordLength = word.length;
             if (!wordCountObject[wordLength]) {
                 wordCountObject[wordLength] = 0;
             }
             wordCountObject[wordLength] += 1;
         }) 
-
+    }
     return wordCountObject;
 }
 
