@@ -6,7 +6,7 @@ case matters and all characters matter.
  */
 function isPalindrome(string) {
     // reverse the string and compare to original
-    return String(string).split('').reverse().join('') === string;
+    return string.split('').reverse().join('') === string;
 }
 console.log(isPalindrome('madam'));               // true
 console.log(isPalindrome('Madam'));               // false (case matters)
