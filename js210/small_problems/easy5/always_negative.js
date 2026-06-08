@@ -5,7 +5,7 @@ a negative number, return it as-is.
 */
 
 function negative(number) {
-    return  number < 0 ? number : -number
+    return  -Math.abs(number);
 }
 
 if (require.main === module) {
