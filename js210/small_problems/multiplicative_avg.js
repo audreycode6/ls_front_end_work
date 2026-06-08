@@ -6,12 +6,12 @@ value rounded to three decimal places.
 */
 
 function showMultiplicativeAverage(arr) {
-    let sum = 1;
+    let product = 1;
     arr.forEach((num) => {
-        sum *= num
+        product *= num
     })
 
-    return (sum / arr.length).toFixed(3);
+    return (product / arr.length).toFixed(3);
 }
 
 if (require.main === module) {
