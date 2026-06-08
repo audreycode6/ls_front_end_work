@@ -6,7 +6,7 @@ Write a function that takes one argument, a positive integer,
 function digitList(positiveInt) {
     const strDigitsList = String(positiveInt).split('');
 
-    return strDigitsList.map((strDigit) => Number(strDigit));
+    return strDigitsList.map(Number);
 }
 
 if (require.main === module) {
