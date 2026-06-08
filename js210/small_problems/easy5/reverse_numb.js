@@ -4,7 +4,7 @@ argument and returns that number with its digits reversed.
 */
 function reverseNumber(num) {
     const reversedNumString = [...String(num)].reverse().join('');
-    return parseInt(reversedNumString);
+    return parseInt(reversedNumString, 10);
 }
 
 if (require.main === module) {
@@ -14,3 +14,5 @@ if (require.main === module) {
     console.log(reverseNumber(12000)) // 21 -- Note that zeros get dropped!
     console.log(reverseNumber(1)) // 1
 };
+
+module.exports = reverseNumber;
