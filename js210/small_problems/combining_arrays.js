@@ -7,14 +7,13 @@ arrays. You may assume that both arguments will always be arrays.
 */
 
 function union(arr1, arr2) {
-    // const argumentsArray = arguments;
     let newArr = [];
     for (let index = 0; index < 2; index++) {
         arguments[index].forEach((elem) => {
         if (!newArr.includes(elem)) {
             newArr.push(elem)
         }
-    })
+        })
     }
 
     return newArr;
