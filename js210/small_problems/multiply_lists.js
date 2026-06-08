@@ -6,7 +6,7 @@ You may assume that the arguments contain the same number of elements.
  */
 
 function multiplyList(arr1, arr2) {
-    return arr1.map((elem, idx) => elem * arr2[idx]);;
+    return arr1.map((elem, idx) => elem * arr2[idx]);
 }
 
 if (require.main === module) {
