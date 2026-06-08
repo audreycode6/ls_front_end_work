@@ -3,10 +3,10 @@ Write a function that takes one argument, a positive integer,
  and returns a list of the digits in the number.
 */
 
-
-
 function digitList(positiveInt) {
-    return String(positiveInt).split('');
+    const strDigitsList = String(positiveInt).split('');
+
+    return strDigitsList.map((strDigit) => Number(strDigit));
 }
 
 if (require.main === module) {
