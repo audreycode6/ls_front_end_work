@@ -1,12 +1,9 @@
-// Last update: 17 Aug 2025
-
 import { defineConfig } from 'eslint/config';
 import globals from 'globals';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import js from '@eslint/js';
 import { FlatCompat } from '@eslint/eslintrc';
-// eslint-disable-next-line no-unused-vars
 import eslint from 'eslint';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -18,6 +15,7 @@ const compat = new FlatCompat({
 });
 
 export default defineConfig([
+  { ignores: ['eslint.config.mjs'] },
   {
     extends: compat.extends('eslint:recommended'),
 
@@ -38,7 +36,7 @@ export default defineConfig([
         BigInt: true,
       },
 
-      sourceType: 'module',
+      sourceType: 'commonjs',
 
       parserOptions: {
         ecmaFeatures: {
