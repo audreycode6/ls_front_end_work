@@ -26,24 +26,26 @@ function substrings(string) {
 
   return allSubstrs;
 }
+if (require.main === module) {
+  console.log(substrings('abcde'));
+  // returns
+  // [
+  //   'a',
+  //   'ab',
+  //   'abc',
+  //   'abcd',
+  //   'abcde',
+  //   'b',
+  //   'bc',
+  //   'bcd',
+  //   'bcde',
+  //   'c',
+  //   'cd',
+  //   'cde',
+  //   'd',
+  //   'de',
+  //   'e',
+  // ];
+}
 
-console.log(substrings('abcde'));
-
-// returns
-// [
-//   'a',
-//   'ab',
-//   'abc',
-//   'abcd',
-//   'abcde',
-//   'b',
-//   'bc',
-//   'bcd',
-//   'bcde',
-//   'c',
-//   'cd',
-//   'cde',
-//   'd',
-//   'de',
-//   'e',
-// ];
+module.exports = substrings;
