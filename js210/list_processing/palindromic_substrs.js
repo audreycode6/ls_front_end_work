@@ -31,7 +31,6 @@ function palindromes(string) {
 if (require.main === module) {
   console.log(palindromes('abcd')); // []
   console.log(palindromes('madam')); // [ "madam", "ada" ]
-
   console.log(palindromes('hello-madam-did-madam-goodbye'));
   // returns
   // [
@@ -52,7 +51,6 @@ if (require.main === module) {
   //   'ada',
   //   'oo',
   // ];
-
   console.log(palindromes('knitting cassettes'));
   // returns
   // ['nittin', 'itti', 'tt', 'ss', 'settes', 'ette', 'tt'];
