@@ -19,3 +19,5 @@ if (require.main === module) {
   console.log(leadingSubstrings('a')); // ["a"]
   console.log(leadingSubstrings('xyzzy')); // ["x", "xy", "xyz", "xyzz", "xyzzy"]
 }
+
+module.exports = leadingSubstrings;
