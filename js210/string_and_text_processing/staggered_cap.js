@@ -11,9 +11,7 @@ to switch between upper and lower case.
 */
 
 function staggeredCase(string) {
-  let newString = '';
-
-  [...string].forEach((char, idx) => {
+  let newStrings = [...string].map((char, idx) => {
     if (/^[A-Za-z]$/i.test(char)) {
       //alphabetic char
       if (idx % 2 === 0) {
@@ -22,10 +20,11 @@ function staggeredCase(string) {
         char = char.toLowerCase();
       }
     }
-    newString += char;
+
+    return char;
   });
 
-  return newString;
+  return newStrings.join('');
 }
 
 console.log(staggeredCase('I Love Launch School!')); // "I LoVe lAuNcH ScHoOl!"
