@@ -8,24 +8,25 @@ are anagrams of the word argument. For example, given the word
 contains "enlist" and "inlets".
  */
 
-function isAnagram(word, wordToMatch) {
-  if (word.length === wordToMatch.length) {
-    let sortedWordChars = [...word].sort();
-    let sortedWordToMatchChars = [...wordToMatch].sort();
+'use strict';
 
-    for (let idx = 0; idx < sortedWordToMatchChars.length; idx += 1) {
-      if (sortedWordChars[idx] !== sortedWordToMatchChars[idx]) {
-        return false;
-      }
-    }
-    return true;
+function isAnagram(word, wordToMatch) {
+  if (word.length !== wordToMatch.length) {
+    return false;
   }
-  return false;
+
+  const sortedWordChars = [...word].sort();
+  const sortedWordToMatchChars = [...wordToMatch].sort();
+
+  for (let idx = 0; idx < sortedWordToMatchChars.length; idx += 1) {
+    if (sortedWordChars[idx] !== sortedWordToMatchChars[idx]) {
+      return false;
+    }
+  }
+  return true;
 }
 function anagram(word, list) {
-  // filter list if currWord is anagram
-  let anagrams = list.filter((currentWord) => isAnagram(currentWord, word));
-  return anagrams;
+  return list.filter((currentWord) => isAnagram(currentWord, word));
 }
 
 console.log(anagram('listen', ['enlists', 'google', 'inlets', 'banana'])); // [ "inlets" ]
