@@ -14,16 +14,18 @@ something else to perform the conversion for you.
  */
 
 function octalToDecimal(numberString) {
-  const OCTAL_POWER = 8;
-  let subtractor = 1;
+  const OCTAL_BASE = 8;
+  let exponent = 1;
 
   let decimalValue = [...numberString]
     .map((digit, _, arr) => {
       // map each digits decimal value
-      let digitsPlaceValue = arr.length - subtractor;
-      let octalValue = Number(digit) * Math.pow(OCTAL_POWER, digitsPlaceValue);
-      subtractor += 1;
-      return octalValue;
+      let digitExponent = arr.length - exponent;
+      let digitDecimalValue =
+        Number(digit) * Math.pow(OCTAL_BASE, digitExponent);
+      exponent += 1;
+
+      return digitDecimalValue;
     })
     .reduce((accum, value) => accum + value); // get sum of all digits decimal value
 
