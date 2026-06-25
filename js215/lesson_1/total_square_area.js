@@ -8,10 +8,9 @@ total area covered by all the rectangles. */
 'use strict';
 
 function totalArea(arrayOfHeightsAndWidths) {
-  let areas = arrayOfHeightsAndWidths.map(([height, width]) => {
-    return height * width;
-  });
-  let totalArea = areas.reduce((accum, elem) => accum + elem);
+  let totalArea = arrayOfHeightsAndWidths
+    .map(([height, width]) => height * width)
+    .reduce((accum, elem) => accum + elem);
 
   return totalArea;
 }
