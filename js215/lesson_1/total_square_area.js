@@ -24,3 +24,25 @@ let rectangles = [
 ];
 
 console.log(totalArea(rectangles)); // 141
+
+/*
+second Function named totalSquareArea. This Function should
+calculate the total area of a set of rectangles, just
+like totalArea. However, it should only include squares in
+its calculations: it should ignore rectangles that aren't square. */
+function totalSquareArea(arrayOfHeightsAndWidths) {
+  let onlySquares = arrayOfHeightsAndWidths.filter(
+    ([height, width]) => height === width,
+  );
+  return totalArea(onlySquares);
+}
+
+let rectangles2 = [
+  [3, 4],
+  [6, 6],
+  [1, 8],
+  [9, 9],
+  [2, 2],
+];
+
+console.log(totalSquareArea(rectangles2)); // 121
