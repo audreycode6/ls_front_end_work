@@ -15,15 +15,13 @@ something else to perform the conversion for you.
 
 function octalToDecimal(numberString) {
   const OCTAL_BASE = 8;
-  let exponent = 1;
 
   let decimalValue = [...numberString]
-    .map((digit, _, arr) => {
+    .map((digit, idx, arr) => {
       // map each digits decimal value
-      let digitExponent = arr.length - exponent;
+      let digitExponent = arr.length - idx - 1;
       let digitDecimalValue =
         Number(digit) * Math.pow(OCTAL_BASE, digitExponent);
-      exponent += 1;
 
       return digitDecimalValue;
     })
