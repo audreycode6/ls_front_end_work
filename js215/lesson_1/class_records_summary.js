@@ -70,106 +70,6 @@ function generateClassRecordSummary(scores) {
   };
 }
 
-function getStudentsGradesSummary(scoresObj) {
-  return Object.keys(scoresObj).map((student) => {
-    return getStudentScoreString(scoresObj[student].scores);
-  });
-}
-
-function getExamSummary(scoresObj) {
-  const studentsExamScores = getStudentsExamScores(scoresObj);
-  const allExamsScores = getExamScores(studentsExamScores);
-
-  return allExamsScores.map((examScores) => {
-    return {
-      average: getAvg(examScores),
-      minimum: Math.min(...examScores),
-      maximum: Math.max(...examScores),
-    };
-  });
-}
-
-function getAvg(arrayOfNumbers) {
-  let length = arrayOfNumbers.length;
-  return getSum(arrayOfNumbers) / length;
-}
-
-/*
--------------------------------
-HELPERS TO getStudentsGradesSummary
--------------------------------
-*/
-function getSum(arrayOfNumbers) {
-  return arrayOfNumbers.reduce((acc, curr) => acc + curr);
-}
-
-function getFinalPercentGrade(
-  avgExamScore,
-  exerciseScore,
-  examWeight,
-  exerciseWeight,
-) {
-  let finalPercentGrade =
-    avgExamScore * examWeight + exerciseScore * exerciseWeight;
-
-  return Math.round(finalPercentGrade).toFixed(1); //  Round to the nearest integer
-}
-
-function getLetterGrade(percentGrade) {
-  switch (true) {
-    case percentGrade >= 93:
-      return 'A';
-    case percentGrade >= 85 && percentGrade <= 92:
-      return 'B';
-    case percentGrade >= 77 && percentGrade <= 84:
-      return 'C';
-    case percentGrade >= 69 && percentGrade <= 76:
-      return 'D';
-    case percentGrade >= 60 && percentGrade <= 68:
-      return 'E';
-    default:
-      return 'F';
-  }
-}
-
-function getStudentScoreString(scoreObj) {
-  const averageExamScore = getAvg(scoreObj.exams);
-  const exercisesSum = getSum(scoreObj.exercises);
-  const finalPercentGrade = getFinalPercentGrade(
-    averageExamScore,
-    exercisesSum,
-    EXAM_WEIGHT,
-    EXERCISES_WEIGHT,
-  );
-
-  const letterGrade = getLetterGrade(finalPercentGrade);
-  return `${finalPercentGrade} (${letterGrade})`;
-}
-
-/*
--------------------------------
-HELPERS TO getExamSummary
--------------------------------
-*/
-function getStudentsExamScores(scoresObj) {
-  return Object.keys(scoresObj).map((student) => {
-    return scoresObj[student].scores.exams;
-  });
-}
-
-function getExamScores(studentsExamScores, examCount = EXAM_COUNT) {
-  let examsStudentScores = [];
-
-  for (let examNum = 0; examNum < examCount; examNum += 1) {
-    let examScore = studentsExamScores.map((studentScores) => {
-      return studentScores[examNum];
-    });
-    examsStudentScores.push(examScore);
-  }
-
-  return examsStudentScores;
-}
-
 let studentScores = {
   student1: {
     id: 123456789,
@@ -220,3 +120,110 @@ console.log(generateClassRecordSummary(studentScores));
 //     { average: 91.8, minimum: 80, maximum: 100 },
 //   ],
 // }
+
+/*
+----------------
+HELPER FUNCTIONS
+----------------
+*/
+
+function getStudentsGradesSummary(scoresObj) {
+  return Object.keys(scoresObj).map((student) => {
+    return getStudentScoreString(scoresObj[student].scores);
+  });
+}
+
+function getExamSummary(scoresObj) {
+  const studentsExamScores = getStudentsExamScores(scoresObj);
+  const allExamsScores = getExamScores(studentsExamScores);
+
+  return allExamsScores.map((examScores) => {
+    return {
+      average: getAvg(examScores),
+      minimum: Math.min(...examScores),
+      maximum: Math.max(...examScores),
+    };
+  });
+}
+
+function getAvg(arrayOfNumbers) {
+  let length = arrayOfNumbers.length;
+  return getSum(arrayOfNumbers) / length;
+}
+
+/*
+-------------------------------
+HELPERS TO getStudentsGradesSummary
+-------------------------------
+*/
+
+function getStudentScoreString(scoreObj) {
+  const averageExamScore = getAvg(scoreObj.exams);
+  const exercisesSum = getSum(scoreObj.exercises);
+  const finalPercentGrade = getFinalPercentGrade(
+    averageExamScore,
+    exercisesSum,
+    EXAM_WEIGHT,
+    EXERCISES_WEIGHT,
+  );
+
+  const letterGrade = getLetterGrade(finalPercentGrade);
+  return `${finalPercentGrade} (${letterGrade})`;
+}
+
+function getSum(arrayOfNumbers) {
+  return arrayOfNumbers.reduce((acc, curr) => acc + curr);
+}
+
+function getFinalPercentGrade(
+  avgExamScore,
+  exerciseScore,
+  examWeight,
+  exerciseWeight,
+) {
+  let finalPercentGrade =
+    avgExamScore * examWeight + exerciseScore * exerciseWeight;
+
+  return Math.round(finalPercentGrade).toFixed(1); //  Round to the nearest integer
+}
+
+function getLetterGrade(percentGrade) {
+  switch (true) {
+    case percentGrade >= 93:
+      return 'A';
+    case percentGrade >= 85 && percentGrade <= 92:
+      return 'B';
+    case percentGrade >= 77 && percentGrade <= 84:
+      return 'C';
+    case percentGrade >= 69 && percentGrade <= 76:
+      return 'D';
+    case percentGrade >= 60 && percentGrade <= 68:
+      return 'E';
+    default:
+      return 'F';
+  }
+}
+
+/*
+-------------------------------
+HELPERS TO getExamSummary
+-------------------------------
+*/
+function getStudentsExamScores(scoresObj) {
+  return Object.keys(scoresObj).map((student) => {
+    return scoresObj[student].scores.exams;
+  });
+}
+
+function getExamScores(studentsExamScores, examCount = EXAM_COUNT) {
+  let examsStudentScores = [];
+
+  for (let examNum = 0; examNum < examCount; examNum += 1) {
+    let examScore = studentsExamScores.map((studentScores) => {
+      return studentScores[examNum];
+    });
+    examsStudentScores.push(examScore);
+  }
+
+  return examsStudentScores;
+}
