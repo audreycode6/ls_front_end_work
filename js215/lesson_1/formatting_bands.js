@@ -22,42 +22,29 @@ return an Array that contains the fixed information:
 
  */
 
+function updateCountryToCanada(obj) {
+  obj.country = 'Canada';
+}
+
+function capitalizeName(obj) {
+  obj.name = obj.name
+    .split(' ')
+    .map((word) => word[0].toUpperCase() + word.slice(1))
+    .join(' ');
+}
+
+function removeDotsFromName(obj) {
+  obj.name = [...obj.name].filter((char) => char !== '.').join('');
+}
+
 function processBands(data) {
-  // update each country key value to 'Canada'
-  let updateCountryToCanada = data.map((obj) => {
-    obj.country = 'Canada';
-    return obj;
-  });
-
-  //for each word in name update word to be capitalized
-  let capitalizeName = updateCountryToCanada.map((obj) => {
-    let wordsInName = obj.name.split(' ');
-    let nameCapitalized = wordsInName
-      .map((word) => {
-        return word[0].toUpperCase() + word.slice(1);
-      })
-      .join(' ');
-    obj.name = nameCapitalized;
-    return obj;
-  });
-
-  // remove all dots from name
-  let removeDotsFromName = capitalizeName.map((obj) => {
-    // filter and make array of all chars not "."
-    let noDotName = [...obj.name].filter((char) => char !== '.');
-    console.log(noDotName);
-    obj.name = noDotName.join('');
+  return data.map((obj) => {
+    updateCountryToCanada(obj);
+    capitalizeName(obj);
+    removeDotsFromName(obj);
 
     return obj;
   });
-
-  return removeDotsFromName;
-
-  // clean up bands array
-  // map: all get country value set to 'Canada'
-  // map: cap all band names
-  // map: remove all dots removed from name value
-  //
 }
 
 console.log(processBands(bands));
