@@ -1,3 +1,4 @@
+/* eslint-disable max-lines-per-function */
 /*
 At the end of each term, faculty members need to
 prepare a class record summary for students based
@@ -52,12 +53,28 @@ Apply weights to determine the final percent grade: 84 * .65 + 75 * .35 = 80.85
 Round the percent grade to the nearest integer: 81
 Lookup the letter grade in the table above: C
 Combine the percent grade and letter grade: "81 (C)"
+*/
+
+/* generateClassRecordSummary NOTES:
+TAKES IN: obj with:
+keys representing student and
+values being an object with 2 keys:
+  id -> num
+  scores ->  object with 2 keys:
+    exams -> array of nums
+    exercises -> array of nums
+-----------
+RETURNS: new obj with 2 keys:
+  studentGrades -> array of strings: e.g "{num} ({letterGrade})"
+  exams -> array of objs with 3 keys:
+    average -> num
+    minimum -> num
+    maximum -> num
 
 */
 
 const EXAM_WEIGHT = 0.65;
 const EXERCISES_WEIGHT = 0.35;
-const MAX_EXERCISE_AND_EXAM_POINTS = 100;
 
 function getSum(arrayOfNumbers) {
   return arrayOfNumbers.reduce((acc, curr) => acc + curr);
@@ -107,51 +124,49 @@ function getStudentScoreString(scoreObj) {
   );
 
   const letterGrade = getLetterGrade(finalPercentGrade);
-  return `"${finalPercentGrade} (${letterGrade})"`;
+  return `${finalPercentGrade} (${letterGrade})`;
+}
+
+function getStudentsScores(scoresObj) {
+  return Object.keys(scoresObj).map((student) => {
+    return scoresObj[student].scores.exams;
+  });
+}
+
+function getExamScores(studentsExamScores, examCount = 4) {
+  let examsStudentScores = [];
+
+  for (let examNum = 0; examNum < examCount; examNum += 1) {
+    let examScores = studentsExamScores.map((studentScores) => {
+      return studentScores[examNum];
+    });
+    examsStudentScores.push(examScores);
+  }
+
+  return examsStudentScores;
 }
 
 function generateClassRecordSummary(scores) {
-  // let studentGrades = []; // string elements that represent
-  // //                      student avg score and letter grade
-  // let exams = []; // object elements
-
-  let studentGrades = scores.map((obj) => {
-    return getStudentGradeString(obj.scores);
+  const studentsGradeString = Object.keys(scores).map((student) => {
+    return getStudentScoreString(scores[student].scores);
   });
 
-  /*
-  CREATE EXAM ARR:
-  create array for each exam (4)
-    for each studentobj get scores[exams][idx]
+  const studentsExamScores = getStudentsScores(scores);
+  const allExamScores = getExamScores(studentsExamScores);
+  const examArr = allExamScores.map((examScores) => {
+    return {
+      average: getAvg(examScores),
+      minimum: Math.min(...examScores),
+      maximum: Math.max(...examScores),
+    };
+  });
 
-  for each examArr
-    get avg: getAvg(examArr)
-    get minumum: Math.min(examArr)
-    get maximum: Math.max(examArr)
-
-  */
-
-  /* return final obj:
-  {studentsGrades, exams} */
-
-  /*
-  TAKES IN: obj with:
-  keys representing student and
-  values being an object with 2 keys:
-    id -> num
-    scores ->  object with 2 keys:
-      exams -> array of nums
-      exercises -> array of nums
-  -----------
-  RETURNS: new obj with 2 keys:
-   studentGrades -> array of strings: e.g "{num} ({letterGrade})"
-   exams -> array of objs with 3 keys:
-      average -> num
-      minimum -> num
-      maximum -> num
-
-  */
+  return {
+    studentGrades: studentsGradeString,
+    exams: examArr,
+  };
 }
+
 let studentScores = {
   student1: {
     id: 123456789,
