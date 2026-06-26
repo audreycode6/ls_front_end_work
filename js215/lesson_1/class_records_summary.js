@@ -1,4 +1,3 @@
-/* eslint-disable max-lines-per-function */
 /*
 At the end of each term, faculty members need to
 prepare a class record summary for students based
@@ -21,11 +20,6 @@ The total maximum point value for all exercises in any
 term is always 100, regardless of how many exercises the
 students had to complete.
 
-For example, a term may have five exercises with
-possible score maximums of [30, 20, 10, 20, 20]
-while another term may have three exercises with possible score
-maximums of [20, 30, 50].
-
 To determine a student's grade, we first determine the
 student's average score from the four exams, then sum
 all the exercise scores. We then apply the weights to
@@ -41,18 +35,6 @@ Percent Grade | Letter Equivalent
 60 - 68       | E
 0 - 59        | F
 
-For example, let's assume a term with three exercises
-with maximum scores of [20, 30, 50]. A student got
-[90, 80, 95, 71] on her four exams, and [20, 15, 40]
-on her exercises. To determine her final grade,
-we follow these steps:
-
-Compute the student's average exam score: (90 + 80 + 95 + 71) / 4 = 84
-Compute the student's total exercise score: 20 + 15 + 40 = 75
-Apply weights to determine the final percent grade: 84 * .65 + 75 * .35 = 80.85
-Round the percent grade to the nearest integer: 81
-Lookup the letter grade in the table above: C
-Combine the percent grade and letter grade: "81 (C)"
 */
 
 /* generateClassRecordSummary NOTES:
@@ -75,14 +57,50 @@ RETURNS: new obj with 2 keys:
 
 const EXAM_WEIGHT = 0.65;
 const EXERCISES_WEIGHT = 0.35;
+const EXAM_COUNT = 4;
 
-function getSum(arrayOfNumbers) {
-  return arrayOfNumbers.reduce((acc, curr) => acc + curr);
+/* MAIN FUNC */
+function generateClassRecordSummary(scores) {
+  const studentsGradeSummary = getStudentsGradesSummary(scores);
+  const examSummary = getExamSummary(scores);
+
+  return {
+    studentGrades: studentsGradeSummary,
+    exams: examSummary,
+  };
+}
+
+function getStudentsGradesSummary(scoresObj) {
+  return Object.keys(scoresObj).map((student) => {
+    return getStudentScoreString(scoresObj[student].scores);
+  });
+}
+
+function getExamSummary(scoresObj) {
+  const studentsExamScores = getStudentsExamScores(scoresObj);
+  const allExamsScores = getExamScores(studentsExamScores);
+
+  return allExamsScores.map((examScores) => {
+    return {
+      average: getAvg(examScores),
+      minimum: Math.min(...examScores),
+      maximum: Math.max(...examScores),
+    };
+  });
 }
 
 function getAvg(arrayOfNumbers) {
   let length = arrayOfNumbers.length;
   return getSum(arrayOfNumbers) / length;
+}
+
+/*
+-------------------------------
+HELPERS TO getStudentsGradesSummary
+-------------------------------
+*/
+function getSum(arrayOfNumbers) {
+  return arrayOfNumbers.reduce((acc, curr) => acc + curr);
 }
 
 function getFinalPercentGrade(
@@ -93,7 +111,8 @@ function getFinalPercentGrade(
 ) {
   let finalPercentGrade =
     avgExamScore * examWeight + exerciseScore * exerciseWeight;
-  return Math.round(finalPercentGrade); //  Round to the nearest integer
+
+  return Math.round(finalPercentGrade).toFixed(1); //  Round to the nearest integer
 }
 
 function getLetterGrade(percentGrade) {
@@ -127,44 +146,28 @@ function getStudentScoreString(scoreObj) {
   return `${finalPercentGrade} (${letterGrade})`;
 }
 
-function getStudentsScores(scoresObj) {
+/*
+-------------------------------
+HELPERS TO getExamSummary
+-------------------------------
+*/
+function getStudentsExamScores(scoresObj) {
   return Object.keys(scoresObj).map((student) => {
     return scoresObj[student].scores.exams;
   });
 }
 
-function getExamScores(studentsExamScores, examCount = 4) {
+function getExamScores(studentsExamScores, examCount = EXAM_COUNT) {
   let examsStudentScores = [];
 
   for (let examNum = 0; examNum < examCount; examNum += 1) {
-    let examScores = studentsExamScores.map((studentScores) => {
+    let examScore = studentsExamScores.map((studentScores) => {
       return studentScores[examNum];
     });
-    examsStudentScores.push(examScores);
+    examsStudentScores.push(examScore);
   }
 
   return examsStudentScores;
-}
-
-function generateClassRecordSummary(scores) {
-  const studentsGradeString = Object.keys(scores).map((student) => {
-    return getStudentScoreString(scores[student].scores);
-  });
-
-  const studentsExamScores = getStudentsScores(scores);
-  const allExamScores = getExamScores(studentsExamScores);
-  const examArr = allExamScores.map((examScores) => {
-    return {
-      average: getAvg(examScores),
-      minimum: Math.min(...examScores),
-      maximum: Math.max(...examScores),
-    };
-  });
-
-  return {
-    studentGrades: studentsGradeString,
-    exams: examArr,
-  };
 }
 
 let studentScores = {
