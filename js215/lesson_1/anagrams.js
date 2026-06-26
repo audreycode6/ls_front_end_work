@@ -12,19 +12,23 @@ contains "enlist" and "inlets".
 
 function isAnagram(word, wordToMatch) {
   if (word.length !== wordToMatch.length) {
+    // check equal in length
     return false;
   }
 
+  // make words into sorted array of its chars
   const sortedWordChars = [...word].sort();
   const sortedWordToMatchChars = [...wordToMatch].sort();
 
-  for (let idx = 0; idx < sortedWordToMatchChars.length; idx += 1) {
-    if (sortedWordChars[idx] !== sortedWordToMatchChars[idx]) {
-      return false;
-    }
-  }
-  return true;
+  return compareArrays(sortedWordChars, sortedWordToMatchChars);
 }
+
+function compareArrays(arr1, arr2) {
+  return arr1.every((elem, idx) => {
+    return elem === arr2[idx];
+  });
+}
+
 function anagram(word, list) {
   return list.filter((currentWord) => isAnagram(currentWord, word));
 }
