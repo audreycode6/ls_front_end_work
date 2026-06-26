@@ -22,36 +22,37 @@ return an Array that contains the fixed information:
 
  */
 
-function updateCountryToCanada(obj) {
-  obj.country = 'Canada';
-}
-
-function capitalizeName(obj) {
-  obj.name = obj.name
+function capitalizeName(name) {
+  return name
     .split(' ')
-    .map((word) => word[0].toUpperCase() + word.slice(1))
+    .map((word) => {
+      return word[0].toUpperCase() + word.slice(1);
+    })
     .join(' ');
 }
 
-function removeDotsFromName(obj) {
-  obj.name = [...obj.name].filter((char) => char !== '.').join('');
+function removeDotsFromName(name) {
+  return [...name].filter((char) => char !== '.').join('');
 }
 
 function processBands(data) {
-  return data.map((obj) => {
-    updateCountryToCanada(obj);
-    capitalizeName(obj);
-    removeDotsFromName(obj);
+  return data.map((band) => {
+    let capitalizedName = capitalizeName(band.name);
+    let finalBandName = removeDotsFromName(capitalizedName);
 
-    return obj;
+    return {
+      name: finalBandName,
+      country: 'Canada',
+      active: band.active,
+    };
   });
 }
 
 console.log(processBands(bands));
-
 // should return:
 // [
 //   { name: 'Sunset Rubdown', country: 'Canada', active: false },
 //   { name: 'Women', country: 'Canada', active: false },
 //   { name: 'A Silver Mt Zion', country: 'Canada', active: true },
 // ]
+console.log(bands); // original is unchanged
