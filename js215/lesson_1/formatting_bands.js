@@ -1,4 +1,3 @@
-/* eslint-disable max-lines-per-function */
 /*
 We have the following Array of information for some popular bands:
  */
@@ -22,8 +21,8 @@ return an Array that contains the fixed information:
 
  */
 
-function capitalizeName(name) {
-  return name
+function capitalizePhrase(phrase) {
+  return phrase
     .split(' ')
     .map((word) => {
       return word[0].toUpperCase() + word.slice(1);
@@ -37,7 +36,7 @@ function removeDotsFromName(name) {
 
 function processBands(data) {
   return data.map((band) => {
-    let capitalizedName = capitalizeName(band.name);
+    let capitalizedName = capitalizePhrase(band.name);
     let finalBandName = removeDotsFromName(capitalizedName);
 
     return {
