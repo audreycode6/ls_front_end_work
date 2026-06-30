@@ -24,7 +24,7 @@ To keep things simple, you don't need to check whether the domain
  */
 
 function isValidEmail(email) {
-  if (!hasAtSymbol(email)) {
+  if (!hasOneAtSymbol(email)) {
     return false;
   }
 
@@ -55,8 +55,8 @@ HELPER FUNCS
 -------------
  */
 
-function hasAtSymbol(string) {
-  return string.indexOf('@') >= 0;
+function hasOneAtSymbol(string) {
+  return string.split('@').length === 2;
 }
 
 function isAlphaNumericString(string) {
