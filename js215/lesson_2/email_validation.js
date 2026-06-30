@@ -79,14 +79,5 @@ function validDomain(domain) {
 }
 
 function hasOnlyAlphabeticStrings(arr) {
-  for (let idx = 0; idx < arr.length; idx += 1) {
-    let currentString = arr[idx];
-    if (
-      currentString.length > 0 && // not empty string
-      currentString === extractLetters(currentString) //
-    ) {
-      continue;
-    } else return false;
-  }
-  return true;
+  return arr.every((component) => /^[a-zA-Z]+$/.test(component));
 }
