@@ -91,6 +91,18 @@ function sentiment(text) {
   console.log('\n' + fullAnalysis);
 }
 
+sentiment(textExcerpt);
+
+// console output:
+
+// There are 5 positive words in the text.
+// Positive sentiments: fortune, dream, respect, love, resolution
+
+// There are 6 negative words in the text.
+// Negative sentiments: die, heartache, die, death, weary, death
+
+// The sentiment of the text is Negative.
+
 /*
 ----------------
 HELPER FUNCS
@@ -132,31 +144,3 @@ function getConclusion(positiveCount, negativeCount) {
 function getConclusionSentence(conclusion) {
   return `The sentiment of the text is ${conclusion}.`;
 }
-
-// for each word in text if word (lowercased)
-//     in positiveWords increment positive count and
-//      add word to uniquePositives if not already in there
-//.    in negativeWords increment negative count and
-//      add word to uniqueNegatives if not already in there
-// output analysis:
-//positive analysis:
-//       "There are ${positiveCount} ${positive} words in the text."
-//.      "Positive sentiments: ${uniquePostives.join(", ")}"
-// negative analysis:
-//       "There are ${negativeCount} ${negative} words in the text."
-//.      "Negative sentiments: ${uniquePostives.join(", ")}"
-
-// conclusion:
-// The sentiment of the text is ${positive - negativecount eval}
-
-sentiment(textExcerpt);
-
-// console output:
-
-// There are 5 positive words in the text.
-// Positive sentiments: fortune, dream, respect, love, resolution
-
-// There are 6 negative words in the text.
-// Negative sentiments: die, heartache, die, death, weary, death
-
-// The sentiment of the text is Negative.
