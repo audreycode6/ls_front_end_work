@@ -63,11 +63,6 @@ function isAlphaNumericString(string) {
   return /^[a-zA-Z0-9]+$/.test(string);
 }
 
-function extractLetters(string) {
-  let letters = [...string].filter((char) => /^[a-zA-Z]+$/.test(char));
-  return letters.join('');
-}
-
 function validDomain(domain) {
   const domainComponents = domain.split('.');
 
