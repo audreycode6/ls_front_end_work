@@ -24,6 +24,11 @@ test('isValidEmail returns false when there are two @ signs', () => {
   assert.strictEqual(isValidEmail('foo@baz@bar.ph'), false);
 });
 
+// Invalid: multiple @ signs — extra @baz suffix after a valid-looking address
+test('isValidEmail returns false for "foo@bar.com@baz" (multiple @ signs)', () => {
+  assert.strictEqual(isValidEmail('foo@bar.com@baz'), false);
+});
+
 // Invalid: domain has no dot (only one component)
 test('isValidEmail returns false when domain has no dot', () => {
   assert.strictEqual(isValidEmail('HELLO123@baz'), false);
