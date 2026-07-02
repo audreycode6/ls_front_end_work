@@ -29,11 +29,35 @@ function isValidEmail(email) {
   }
 
   const [local, domain] = email.split('@');
-  return isAlphaNumericString(local) && validDomain(domain);
+  return isAlphaNumericString(local) && isValidDomain(domain);
 }
 
-module.exports = { isValidEmail };
+function hasOneAtSymbol(string) {
+  return string.split('@').length === 2;
+}
 
+function isAlphaNumericString(string) {
+  return /^[a-zA-Z0-9]+$/.test(string);
+}
+
+function isValidDomain(domain) {
+  const domainComponents = domain.split('.');
+
+  if (domainComponents.length < 2) {
+    return false;
+  }
+
+  return hasOnlyAlphabeticStrings(domainComponents);
+}
+
+function hasOnlyAlphabeticStrings(arr) {
+  return arr.every((component) => /^[a-zA-Z]+$/.test(component));
+}
+
+/*
+------------
+
+------------ */
 if (require.main === module) {
   console.log(isValidEmail('Foo@baz.com.ph')); // returns true
   console.log(isValidEmail('Foo@mx.baz.com.ph')); // returns true
@@ -49,30 +73,4 @@ if (require.main === module) {
   console.log(isValidEmail('foo@bar.....com')); // returns false
 }
 
-/*
--------------
-HELPER FUNCS
--------------
- */
-
-function hasOneAtSymbol(string) {
-  return string.split('@').length === 2;
-}
-
-function isAlphaNumericString(string) {
-  return /^[a-zA-Z0-9]+$/.test(string);
-}
-
-function validDomain(domain) {
-  const domainComponents = domain.split('.');
-
-  if (domainComponents.length < 2) {
-    return false;
-  }
-
-  return hasOnlyAlphabeticStrings(domainComponents);
-}
-
-function hasOnlyAlphabeticStrings(arr) {
-  return arr.every((component) => /^[a-zA-Z]+$/.test(component));
-}
+module.exports = { isValidEmail };
