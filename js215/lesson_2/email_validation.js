@@ -54,10 +54,6 @@ function hasOnlyAlphabeticStrings(arr) {
   return arr.every((component) => /^[a-zA-Z]+$/.test(component));
 }
 
-/*
-------------
-
------------- */
 if (require.main === module) {
   console.log(isValidEmail('Foo@baz.com.ph')); // returns true
   console.log(isValidEmail('Foo@mx.baz.com.ph')); // returns true
