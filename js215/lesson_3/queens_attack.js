@@ -47,10 +47,13 @@ Write a function which, given a string representation of
 function queenAttack(stringBoard) {
   const arrayOfStringRows = stringBoard.split('\n');
 
-  const coordinatesObj = queenCoordinates(arrayOfStringRows);
+  const queenCoordinatesObj = queenCoordinates(arrayOfStringRows);
 
-  if (coordinatesObj['B'] && coordinatesObj['W']) {
-    return attackableCoordinates(coordinatesObj['W'], coordinatesObj['B']);
+  if (queenCoordinatesObj['B'] && queenCoordinatesObj['W']) {
+    return attackableCoordinates(
+      queenCoordinatesObj['W'],
+      queenCoordinatesObj['B'],
+    );
   } else return undefined; // missing 1 or more queens
 }
 
