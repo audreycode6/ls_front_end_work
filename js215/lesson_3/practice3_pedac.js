@@ -19,7 +19,7 @@ i:
 ?:
 - what to print if no prime numbers present as substrings in given string?
   -- assuming print "no prime numbers present"
-- are prime numbers just
+- define prime number
 
 
 E:
@@ -83,7 +83,7 @@ function primeNumberPrinter(string) {
     if (primeNumbers.length > 0) {
       console.log(primeNumbers);
     } else console.log('No prime numbers present.');
-  }
+  } else console.log('No prime numbers present.');
 }
 
 function extractNumericSubstrings(string) {
@@ -111,7 +111,7 @@ function isPrime(number) {
       if (number % dividend === 0) {
         // is evenly divisible by number other than 1 and self
         return false;
-      } else continue;
+      }
     }
     return true;
   } else return false;
