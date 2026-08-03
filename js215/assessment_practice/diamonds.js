@@ -106,7 +106,7 @@ function diamond(gridDimensions) {
   let difference = 0;
   let whiteSpaceString = '';
 
-  let asterisksString = getAsterisksString(gridDimensions);
+  let asterisksString = '*'.repeat(gridDimensions);
   grid[middle] = asterisksString;
 
   while (difference < middle) {
@@ -114,7 +114,7 @@ function diamond(gridDimensions) {
     whiteSpaceString += ' ';
 
     //build new string
-    let newString = whiteSpaceString + asterisksString + whiteSpaceString;
+    let newString = whiteSpaceString + asterisksString;
 
     // increase difference
     difference += 1;
@@ -125,14 +125,6 @@ function diamond(gridDimensions) {
   }
 
   grid.forEach((string) => console.log(string));
-}
-
-function getAsterisksString(stringSize) {
-  let string = '';
-  while (string.length < stringSize) {
-    string += '*';
-  }
-  return string;
 }
 
 diamond(1);
