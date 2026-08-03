@@ -59,7 +59,6 @@ triangle(3, 3, 1.5); // "isosceles"
  - retreive the first max value and the other 2 become the shorter sides
   - max 3, shorters [ 3, 1.5] -> shorters (4.5) > than max
 
-
 -- scalene: All three sides are of different lengths.
   -- (and shorter sides sum > than longest side && all angles > 0)
 triangle(3, 4, 5); // "scalene"
@@ -106,40 +105,39 @@ Algorithm:
 
 */
 
-function triangle(angle1, angle2, angle3) {
-  const angles = [angle1, angle2, angle3];
-  if (angle1 < 1 || angle2 < 1 || angle3 < 1) {
-    // angle less than 1 is invalid
+function triangle(side1, side2, side3) {
+  const sides = [side1, side2, side3];
+  if (side1 <= 0 || side2 <= 0 || side3 <= 0) {
+    // side <= 0 is invalid
     return 'invalid';
   }
-  if (angle1 === angle2 && angle2 === angle3) {
-    // angles all equal may be equalateral
+  if (side1 === side2 && side2 === side3) {
+    // sides all equal may be equalateral
     return 'equilateral';
-  } else if (angle1 !== angle2 && angle1 !== angle3 && angle2 !== angle3) {
-    // angles all different may be scalene
-    if (shorterAnglesGreaterThanMax(angles)) {
+  } else if (side1 !== side2 && side1 !== side3 && side2 !== side3) {
+    // sides all different may be scalene
+    if (shorterSidesGreaterThanMax(sides)) {
       return 'scalene';
     } else return 'invalid';
   }
-  // 2 angles are equal to one another and 1 different may be isosceles
-  if (shorterAnglesGreaterThanMax(angles)) {
+  // 2 side are equal to one another and 1 different may be isosceles
+  if (shorterSidesGreaterThanMax(sides)) {
     return 'isoceles';
   } else return 'invalid';
 }
 
-function shorterAnglesGreaterThanMax(anglesArray) {
+function shorterSidesGreaterThanMax(anglesArray) {
   /*
-  - identifies the max
-  - and the 2 shorter angles
+  - identifies the maxside and the 2 shorter sides
   - returns bool: true if sum of 2 "shorter" numbers is > than maxNumber
   ; else false
  */
 
-  let maxAngle = Math.max(...anglesArray);
-  let indexOfMax = anglesArray.indexOf(maxAngle);
-  const shorterAngles = anglesArray.filter((_, idx) => idx !== indexOfMax);
-  let shorterSum = shorterAngles[0] + shorterAngles[1];
-  return shorterSum > maxAngle;
+  let maxSide = Math.max(...anglesArray);
+  let indexOfMax = anglesArray.indexOf(maxSide);
+  const shorterSides = anglesArray.filter((_, idx) => idx !== indexOfMax);
+  let shorterSum = shorterSides[0] + shorterSides[1];
+  return shorterSum > maxSide;
 }
 
 console.log(triangle(3, 3, 3)); // "equilateral"
