@@ -56,60 +56,7 @@ Problem:
           - can use currentIndex to remove input string and add new word
             - reassign current string array [currentIndex] to random word
 
-- Example:
-
-let myTemplate = "The input:adjective brown input:noun"
-" input:abverb input:verb the input:adjective yellow"
-" input:noun, who input:abverb input:verb "
-"his input:noun and looks around."
-
-- Data structure:
-  - use regex pattern to match
-  if (regexPattern.match(currentWord))
-
-    regexPattern: "input:..."" -> the ... will be any of the words in validWordCategory
-    VALID_WORD_CATEGORY = ["adjective", "adverb", "noun", "verb"]
-    - can i use javascript within regexPattern: VALID_WORD_CATEGORY.join("|")
-    const regexPattern = new RegExp(`\\binput:(${VALID_WORD_CATEGORY.join("|")})\\b`);
-    currentWord.match(regexPatten) -> true if match; else false
-
-  - need to identify the input type:
-    -helper func: pass in regexPatternMatch and return inputType
-      ex: "input:noun" -> "noun"
-      - split by ":"
-      - access 2nd elem from the split and that will be the inputType
-
-  - randomly grab a word from a list
-    helper func: take in regexPatternMatch and return random word from
-    corresponding wordReplacements list
-    - the wordReplacements will be in list form
-      adjectives = [quick, lazy, sleepy, noisy, hungry]
-      ...
-    - generate random number 0 - (len of corresponidngWordList - 1) -- helper func
-      Math.floor(Math.random(wordReplacements.length)) -- TODO test
-      - using floor makes it within range (stop before len bc 0 index)
-
-
-- Algorithm:
-
-// split template (string) by whitespace
-
-// iterate through (trakcing currentWord and idx)
-
-// if word matches pattern -- helper func (return bool if match)
-  // extract inputType -- helper func
-  //  (return string of input type when passed in patternMatch)
-  // get randomWordMatch -- helperfunc return random word when passed inputType
-    // get random word  -- random number generator helper func
-    // return random number that will be used (as index) to extract
-    //  a random word from inputList
-
-
-  // replace word at currentIdx with newReplacmeentWord
-
-// join string at end by whitespace and return the filled out template
-
- */
+*/
 
 const VALID_PART_OF_SPEECH_AND_WORDS = {
   adjective: ['quick', 'lazy', 'sleepy', 'noisy', 'hungry'],
@@ -119,70 +66,31 @@ const VALID_PART_OF_SPEECH_AND_WORDS = {
 };
 
 function madlibs(template) {
-  let wordsInTemplate = template.split(' ');
-
-  wordsInTemplate.forEach((word, idx) => {
-    if (isInputPatternMatch(word)) {
-      wordsInTemplate[idx] = getRandomWordMatch(word);
-    }
-  });
-  return wordsInTemplate.join(' ');
-}
-
-function getRandomWordMatch(input) {
-  const [partOfSpeech, ending] = getPartOfSpeechAndPotentialEnding(input);
-  const partOfSpeechWords = VALID_PART_OF_SPEECH_AND_WORDS[partOfSpeech];
-  const randomIdx = getRandomNumber0toMax(partOfSpeechWords.length - 1);
-
-  return partOfSpeechWords[randomIdx] + ending;
+  const regexForInput = /!{([a-z]+)}/g; // matches format: "!{" + <partOfSpeech> + "}"
+  return template.replace(regexForInput, getRandomReplacementWord);
 }
 
 function getRandomNumber0toMax(maxNumber) {
   return Math.floor(Math.random() * (maxNumber + 1));
 }
 
-function isInputPatternMatch(wordToCheck) {
-  /*regexPattern returns true if wordToCheck matches pattern:
-   - starts with: "input:"
-   - and is followed by one of the VALID_PART_OF_SPEECH_AND_WORDS keys
+function getRandomReplacementWord(match, partOfSpeech) {
+  /* callback for template.replace(regexForInput, ..):
+     regexForInput : /!{([a-z]+)}/g
+     regexForInput results get passed as args:
+      - match : whole matching string
+      - partOfSpeech :capture group
   */
-  const regexPattern = new RegExp(
-    `\\binput:(${Object.keys(VALID_PART_OF_SPEECH_AND_WORDS).join('|')})\\b`,
-  );
-  return regexPattern.test(wordToCheck);
+  const partOfSpeechWords = VALID_PART_OF_SPEECH_AND_WORDS[partOfSpeech];
+  const randomIdx = getRandomNumber0toMax(partOfSpeechWords.length - 1);
+  return partOfSpeechWords[randomIdx];
 }
 
-function getPartOfSpeechAndPotentialEnding(input) {
-  /*
-  regexPattern matches by 3 parts:
-   - "input:"
-   - "<one of the VALID_PART_OF_SPEECH_AND_WORDS keys>""
-   - "<any remaining characters>"
+const myNewTemplate =
+  `The !{adjective} brown !{noun} !{adverb}` +
+  ` !{verb} the !{adjective} yellow !{noun}, who !{adverb}` +
+  ` !{verb} his !{noun} and looks around.`;
+const myNewTemplate2 = `The !{noun} !{adverb} the !{noun}'s !{noun}.`;
 
-  e.g  "input:adjective", "input:verb,", "input:noun's"
-  */
-  const regexPattern = new RegExp(
-    `^input:(${Object.keys(VALID_PART_OF_SPEECH_AND_WORDS).join('|')})(.*)$`,
-  );
-  const [, partOfSpeech, ending] = input.match(regexPattern);
-  return [partOfSpeech, ending];
-}
-
-const myTemplate =
-  `The input:adjective brown input:noun input:adverb` +
-  ` input:verb the input:adjective yellow input:noun, who input:adverb` +
-  ` input:verb his input:noun and looks around.`;
-const myTemplate2 = `The input:noun input:adverb the input:noun's input:noun.`;
-
-console.log(`BEFORE: ${myTemplate}`);
-console.log(`AFTER:  ${madlibs(myTemplate)}`);
-// EXAMPLE OUTPUT:
-// The "sleepy" brown "cat" "noisily"
-// "licks" the "sleepy" yellow
-// "dog", who "lazily" "licks" his
-// "tail" and looks around.
-
-console.log(`\nBEFORE 2: ${myTemplate2}`);
-console.log(`AFTER 2:  ${madlibs(myTemplate2)}`);
-// EXAMPLE OUTPUT:
-//The "fox" "bites" the "dog"'s "tail".
+console.log(madlibs(myNewTemplate));
+console.log(madlibs(myNewTemplate2));
