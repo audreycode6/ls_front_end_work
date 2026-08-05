@@ -88,25 +88,21 @@ Algorithm:
  */
 
 function sortTickets(arrayOfSupportTickets) {
-  // - copy input
   let copyArrayOfSupportTickets = structuredClone(arrayOfSupportTickets);
-
-  // - custom func for sorting
-  // - sortPriority
-  //   - getPriorityLevel
-  // - copy.sort(sortPriority)
   copyArrayOfSupportTickets.sort(sortPriority);
-  // - return copy
   return copyArrayOfSupportTickets;
 }
 
 function sortPriority(priorityLevelA, priorityLevelB) {
   // store priorty level options in order of priority descending
   const priorityLevels = ['[HIGH]', '[MED]', '[LOW]'];
-  return (
+  const sortDifference =
     priorityLevels.indexOf(getPriorityLevel(priorityLevelA)) -
-    priorityLevels.indexOf(getPriorityLevel(priorityLevelB))
-  );
+    priorityLevels.indexOf(getPriorityLevel(priorityLevelB));
+
+  if (sortDifference !== 0) return sortDifference;
+  // if equal in value compare by alphabetical order
+  return priorityLevelA.localeCompare(priorityLevelB);
 }
 
 function getPriorityLevel(string) {
@@ -138,8 +134,8 @@ console.log(
 // "[HIGH] server down",
 // "[MED] slow wifi",
 // '[MED] testtt',
-// '[LOW] swag',
-// "[LOW] printer jam"
+// "[LOW] printer jam",
+// '[LOW] swag'
 //]
 
 // -- does not have all priority levels
