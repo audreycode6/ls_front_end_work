@@ -122,7 +122,7 @@ console.log(transpose(testMatrix)); // "ERROR: input was not 3x3 matrix."
 */
 
 /* REFACTOR:
-make it dynamic to input array, [5x5] [2, 2] etc
+make it dynamic to any size square matrix, [5x5] [2, 2] etc
 
 - validate input array has all array elements
  and all array elems  + equal elems as input's len
@@ -144,12 +144,12 @@ transposed: [[1][2]]
 transposed final: [[1, 1][2, 2]]
 */
 
-function transpose(matrixXbyX) {
-  const matrixCopy = structuredClone(matrixXbyX);
+function transpose(squareMatrix) {
+  const matrixCopy = structuredClone(squareMatrix);
 
-  if (isXbyXmatrix(matrixCopy)) {
+  if (isSquareMatrix(matrixCopy)) {
     const inputLength = matrixCopy.length;
-    let transposedArray = getXbyXemptyArray(inputLength); // empty array with inputLength of empty arrays elems
+    let transposedArray = getXbyXemptyArray(inputLength);
 
     matrixCopy.forEach((innerArray) => {
       innerArray.forEach((elem, idx) => {
@@ -158,7 +158,7 @@ function transpose(matrixXbyX) {
     });
     return transposedArray;
   }
-  return 'ERROR: input was not 3x3 matrix.';
+  return 'ERROR: input was not a square matrix.';
 }
 
 function getXbyXemptyArray(length) {
@@ -169,7 +169,7 @@ function getXbyXemptyArray(length) {
   return xByX;
 }
 
-function isXbyXmatrix(input) {
+function isSquareMatrix(input) {
   /*
   validate input array has all array elements
   and all elems are arrays +
