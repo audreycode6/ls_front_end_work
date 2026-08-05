@@ -121,31 +121,67 @@ console.log(transpose(testMatrix)); // "ERROR: input was not 3x3 matrix."
 - return transposedArray
 */
 
-function transpose(matrix3by3) {
-  // - deep copy input
-  const matrixCopy = structuredClone(matrix3by3);
-  // - validate input -- helper func
-  if (is3by3matrix(matrixCopy)) {
-    let transposed3by3 = [[], [], []];
-    matrix3by3.forEach((innerArray) => {
-      const elem0 = innerArray[0];
-      const elem1 = innerArray[1];
-      const elem2 = innerArray[2];
+/* REFACTOR:
+make it dynamic to input array, [5x5] [2, 2] etc
 
-      transposed3by3[0].push(elem0);
-      transposed3by3[1].push(elem1);
-      transposed3by3[2].push(elem2);
+- validate input array has all array elements
+ and all array elems  + equal elems as input's len
+
+
+- use inputArrays len to build transposed array
+  - for each inner array:
+    for each elem, idx in innerArray
+    - transponsed[idx] = elem
+
+input: [[1, 2], [1, 2]]
+transposed: [[], []]
+[1, 2]
+-> 1, 0 : transposed[idx].push(elem)
+-> 2, 1 : tranposed[idx].push(elem)
+transposed: [[1][2]]
+[1, 2]
+-> 1, 0 : transposed[idx].push(elem)
+-> 2, 1 : tranposed[idx].push(elem)
+transposed final: [[1, 1][2, 2]]
+*/
+
+function transpose(matrixXbyX) {
+  const matrixCopy = structuredClone(matrixXbyX);
+
+  if (isXbyXmatrix(matrixCopy)) {
+    const inputLength = matrixCopy.length;
+
+    // build empty array with inputLength empty arrays
+    let transposedArray = getXbyXemptyArray(inputLength);
+
+    matrixCopy.forEach((innerArray) => {
+      innerArray.forEach((elem, idx) => {
+        transposedArray[idx].push(elem);
+      });
     });
-    return transposed3by3;
+    return transposedArray;
   }
   return 'ERROR: input was not 3x3 matrix.';
 }
 
-function is3by3matrix(input) {
+function getXbyXemptyArray(length) {
+  let xByX = [];
+  while (xByX.length < length) {
+    xByX.push([]);
+  }
+  return xByX;
+}
+
+function isXbyXmatrix(input) {
+  /*
+  validate input array has all array elements
+  and all elems are arrays +
+  equal in len to inputArray
+  */
   if (Array.isArray(input)) {
+    const inputLen = input.length;
     if (
-      input.length === 3 &&
-      input.every((elem) => Array.isArray(elem) && elem.length === 3)
+      input.every((elem) => Array.isArray(elem) && elem.length === inputLen)
     ) {
       return true;
     }
@@ -153,16 +189,27 @@ function is3by3matrix(input) {
   return false;
 }
 
+// TESTS:
 const matrix = [
+  [1, 5],
+  [3, 9],
+];
+
+const newMatrix = transpose(matrix);
+
+console.log(newMatrix); // [[1, 3], [5, 9]]
+console.log(matrix); // [[1, 5], [3, 9]]
+
+const matrix2 = [
   [1, 5, 8],
   [4, 7, 2],
   [3, 9, 6],
 ];
 
-const newMatrix = transpose(matrix);
+const newMatrix2 = transpose(matrix2);
 
-console.log(newMatrix); // [[1, 4, 3], [5, 7, 9], [8, 2, 6]]
-console.log(matrix); // [[1, 5, 8], [4, 7, 2], [3, 9, 6]]
+console.log(newMatrix2); // [[1, 4, 3], [5, 7, 9], [8, 2, 6]]
+console.log(matrix2); // [[1, 5, 8], [4, 7, 2], [3, 9, 6]]
 
 const testMatrix = [
   [1, 2, 3],
@@ -171,4 +218,4 @@ const testMatrix = [
 ];
 console.log(transpose(testMatrix)); // "ERROR: input was not 3x3 matrix."
 
-console.log(transpose([])); // "ERROR: input was not 3x3 matrix."
+console.log(transpose([])); // []
