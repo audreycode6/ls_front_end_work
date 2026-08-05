@@ -148,8 +148,7 @@ function transpose(squareMatrix) {
   const matrixCopy = structuredClone(squareMatrix);
 
   if (isSquareMatrix(matrixCopy)) {
-    const inputLength = matrixCopy.length;
-    let transposedArray = getXbyXemptyArray(inputLength);
+    let transposedArray = getXbyXemptyArray(matrixCopy.length);
 
     matrixCopy.forEach((innerArray) => {
       innerArray.forEach((elem, idx) => {
