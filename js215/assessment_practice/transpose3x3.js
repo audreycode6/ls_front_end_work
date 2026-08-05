@@ -127,7 +127,6 @@ make it dynamic to input array, [5x5] [2, 2] etc
 - validate input array has all array elements
  and all array elems  + equal elems as input's len
 
-
 - use inputArrays len to build transposed array
   - for each inner array:
     for each elem, idx in innerArray
@@ -150,9 +149,7 @@ function transpose(matrixXbyX) {
 
   if (isXbyXmatrix(matrixCopy)) {
     const inputLength = matrixCopy.length;
-
-    // build empty array with inputLength empty arrays
-    let transposedArray = getXbyXemptyArray(inputLength);
+    let transposedArray = getXbyXemptyArray(inputLength); // empty array with inputLength of empty arrays elems
 
     matrixCopy.forEach((innerArray) => {
       innerArray.forEach((elem, idx) => {
