@@ -132,6 +132,48 @@ compare against currentItems qty
 
  */
 
+/* REFACTOR:
+forEach orderObj
+  - need to have its id: orderObj['id']
+     -> add to resultArray if all items in orderObj are fulfilled
+     (return at end)
+  - need to check all itemObj from orderObj['items']
+    - store itemName and itemQty
+    - see if inventory has enough qty to fulfill itemObj["qty"] -- helperfunc
+    - if true ->
+      - deduct itemObj["qty"] from inventory[itemObj["name"]] -- helperfunc
+      - add itemName to tracker: completeItems = []
+       -- when done checking all items in orderObj:
+       ifcompleteItems length === orderObj['items'] length
+        then we can add orderObj['id'] to resultArray
+
+
+check that all items in itemsObj can be fulfilled
+before deducting items from inventory
+
+- helper func returns bool eval of all items in itemsObj can be fulfilled
+  -- orderObj['items'] -> list of itemObj's
+  - use every to iterate through itemObj and call inventortHasValidQuantity
+
+
+ALGO:
+-- helper func: inventoryHasValidQty(itemName, itemQty, inventory)
+  return true if inventory[itemName] has enough qty to meet itemQty
+
+-- helper func: updateInventory(itemName, itemQty, inventory)
+  mutate inventory: deduct itemQty from inventory[itemName]
+  return inventory
+
+-- helper func: orderCanBeFulfill(items)
+  - return items.every(itemObj => {
+    const itemName = itemObj['name'];
+    const itemQty = itemObj['qty'];
+    return inventoryHasValidQty(itemName, itemQty, inventory)
+     // needs inventory passed in?
+    })
+
+*/
+
 function fulfillOrders(inventory, orders) {
   let inventoryCopy = structuredClone(inventory);
   let fulfilledOrders = [];
@@ -139,22 +181,31 @@ function fulfillOrders(inventory, orders) {
   orders.forEach((orderObj) => {
     let orderId = orderObj['id'];
     let orderItems = orderObj['items'];
-    let completeItemsArray = [];
 
-    orderItems.forEach((itemObj) => {
-      let itemName = itemObj['name'];
-      let itemQty = itemObj['qty'];
-      inventoryCopy[itemName] -= itemQty;
-
-      if (inventoryCopy[itemName] >= 0) {
-        completeItemsArray.push(itemName);
-      }
-    });
-    if (completeItemsArray.length === orderItems.length) {
+    if (orderCanBeFulfilled(orderItems, inventoryCopy)) {
+      inventoryCopy = updateInventory(orderItems, inventoryCopy);
       fulfilledOrders.push(orderId);
     }
   });
   return fulfilledOrders;
+}
+
+function orderCanBeFulfilled(items, inventory) {
+  let result = items.every((itemObj) => {
+    return inventoryHasValidQty(itemObj['name'], itemObj['qty'], inventory);
+  });
+  return result;
+}
+function inventoryHasValidQty(itemName, itemQty, inventory) {
+  return itemName in inventory && inventory[itemName] >= itemQty;
+}
+
+function updateInventory(items, inventory) {
+  items.forEach((itemObj) => {
+    const itemName = itemObj['name'];
+    inventory[itemName] -= itemObj['qty'];
+  });
+  return inventory;
 }
 
 //TESTS:
