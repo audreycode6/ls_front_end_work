@@ -74,41 +74,17 @@ forEach word, idx in inputArray
 */
 
 function groupAnagrams(array) {
-  let anagramGroups = [];
-  let usedWords = [];
-
-  array.forEach((word, idx) => {
-    if (!usedWords.includes(word)) {
-      let wordOptions = getWordOptions(idx, array, usedWords);
-      let anagramMatches = getAnagrams(wordOptions, word);
-      // update usedwords to have anagramsMatches words
-      anagramMatches.forEach((match) => usedWords.push(match));
-      anagramGroups.push(anagramMatches);
-    }
-  });
-  console.log(anagramGroups);
-  return anagramGroups;
-}
-
-function getWordOptions(currentIdxToStart, words, usedTracker) {
-  let currentWords = words.slice(currentIdxToStart);
-  let options = currentWords.filter((word) => !usedTracker.includes(word));
-  return options;
-}
-
-function getAnagrams(array, wordToMatch) {
-  // return new array of words from array that are a anagram match to word
-  let anagrams = array.filter((word) => isAnagram(wordToMatch, word));
-  return anagrams;
-}
-
-function isAnagram(word1, word2) {
-  // case insensitive compare
-  let arr1 = [...word1.toLowerCase()];
-  let arr2 = [...word2.toLowerCase()];
-  arr1.sort();
-  arr2.sort();
-  return JSON.stringify(arr1) === JSON.stringify(arr2);
+  let anagramGroups = array.reduce((groupsObj, word) => {
+    // get key: sorted word lowercase
+    let key = [...word.toLowerCase()].sort().join('');
+    // add to groupsObj if doesnt exist then empty array else currentValue
+    groupsObj[key] = groupsObj[key] || [];
+    // exists reassign to current value or create and assign to empty array
+    groupsObj[key].push(word); // add word to value: array of matches
+    return groupsObj;
+  }, {});
+  console.log(Object.values(anagramGroups));
+  return Object.values(anagramGroups);
 }
 
 groupAnagrams([
